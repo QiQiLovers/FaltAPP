@@ -19,4 +19,9 @@ public class Hashutil {
      public static boolean checkPass(String pass, String hash) {
         return BCrypt.checkpw(pass, hash);
     }
+     
+     
+     
+     
+    
 }
