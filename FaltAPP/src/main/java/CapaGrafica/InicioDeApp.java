@@ -67,7 +67,7 @@ public class InicioDeApp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(77, 130, 244));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Iniciar Sesion");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
