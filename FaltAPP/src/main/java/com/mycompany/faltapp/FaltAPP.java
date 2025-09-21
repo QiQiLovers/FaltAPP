@@ -9,6 +9,7 @@ public class FaltAPP {
         System.out.println("Hello World!");
         System.out.println("asdasdasdas");
         int AOsdasodas=1;
+        int peep=100;
              
     }
 }
