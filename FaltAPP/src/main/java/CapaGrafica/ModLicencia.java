@@ -8,14 +8,14 @@ package CapaGrafica;
  *
  * @author tomas
  */
-public class AddLicencia extends javax.swing.JFrame {
+public class ModLicencia extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddLicencia.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModLicencia.class.getName());
 
     /**
      * Creates new form AddLicencia
      */
-    public AddLicencia() {
+    public ModLicencia() {
         initComponents();
     }
 
@@ -50,7 +50,7 @@ public class AddLicencia extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(77, 130, 244));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Añadir Licencia");
+        jLabel1.setText("Modificar Licencia");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,7 +103,12 @@ public class AddLicencia extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(77, 130, 244));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Añadir Licencia");
+        jButton2.setText("Modificar Licencia");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,6 +193,10 @@ public class AddLicencia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Ingreso_FechaFinalActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -210,7 +219,7 @@ public class AddLicencia extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddLicencia().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ModLicencia().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
