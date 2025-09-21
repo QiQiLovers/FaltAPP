@@ -8,6 +8,6 @@ package CapaLogica;
  *
  * @author santi
  */
-public class Profesores {
-        private int edad=100;
+public class Profe {
+    
 }
