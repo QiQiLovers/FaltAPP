@@ -11,8 +11,12 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class Hashutil {
    
-    public static String hashPassword(String pass){
+    public static String encriptarPass(String pass){
     
         return BCrypt.hashpw(pass, BCrypt.gensalt(12));
+    }
+    
+     public static boolean checkPass(String pass, String hash) {
+        return BCrypt.checkpw(pass, hash);
     }
 }
