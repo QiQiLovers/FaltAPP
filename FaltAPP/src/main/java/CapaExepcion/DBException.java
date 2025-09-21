@@ -8,6 +8,11 @@ package CapaExepcion;
  *
  * @author santi
  */
-public class DBExeption {
-    
+public class DBException extends Exception{
+     
+    public DBException(String string){
+        super(string);
+    }
 }
+
+
