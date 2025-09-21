@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 public class CrearUsuario{
     public Conexion cone=new Conexion();
     public PreparedStatement ps;
-    private static final String CrearUsuario="INSERT INTO FaltAPP.Usuarios(Nombre,Contraseña) VALUES(?,?)";
-    private static final String IniciarSesion = "SELECT password FROM usuarios WHERE username = ?";
+    private static final String CrearUsuario="INSERT INTO FaltAPP.Usuarios(Nombre,Contrasenia) VALUES(?,?)";
+    private static final String IniciarSesion = "SELECT Contrasenia FROM FaltAPP.Usuarios WHERE Nombre = ?";
     private String user="Admin"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
     private String contra="1234";
     
@@ -56,7 +56,7 @@ public class CrearUsuario{
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                String hash = rs.getString("password");
+                String hash = rs.getString("Contrasenia");
                 return Hashutil.checkPass(password, hash);
             }
 
