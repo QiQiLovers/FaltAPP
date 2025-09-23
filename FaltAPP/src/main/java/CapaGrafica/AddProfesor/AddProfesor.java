@@ -272,9 +272,6 @@ dispose();
 
 }
 
-
-       
-
     }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
     /**
