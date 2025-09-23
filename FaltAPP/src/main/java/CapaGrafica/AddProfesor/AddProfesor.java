@@ -265,9 +265,6 @@ if(IngresarCI.getText().isEmpty() || IngresarNombre.getText().isEmpty() || Ingre
     {
     }
    
-
-
-
 dispose();
         setVisible(false);
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
