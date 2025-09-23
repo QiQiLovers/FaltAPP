@@ -4,6 +4,14 @@
  */
 package CapaGrafica;
 
+import CapaGrafica.AddProfesor.AddProfesor;
+import CapaGrafica.EliminarProfesor.DeleteDocente;
+import CapaGrafica.Licencias.AddInasistenciaBuscar;
+import CapaGrafica.Licencias.AddLicencia;
+import CapaGrafica.Licencias.ModLicencia;
+import CapaGrafica.Licencias.ModLicenciaBuscar;
+import CapaGrafica.ModProfesor.ModProfesor;
+
 /**
  *
  * @author tomas
@@ -58,18 +66,38 @@ public class ControlesAdmin extends javax.swing.JFrame {
         Add_Profe.setBackground(new java.awt.Color(77, 130, 244));
         Add_Profe.setForeground(new java.awt.Color(0, 0, 0));
         Add_Profe.setText("Añadir Docente");
+        Add_Profe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Add_ProfeActionPerformed(evt);
+            }
+        });
 
         Mod_Profe.setBackground(new java.awt.Color(77, 130, 244));
         Mod_Profe.setForeground(new java.awt.Color(0, 0, 0));
         Mod_Profe.setText("Modificar Docente");
+        Mod_Profe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mod_ProfeActionPerformed(evt);
+            }
+        });
 
         Del_Profe.setBackground(new java.awt.Color(77, 130, 244));
         Del_Profe.setForeground(new java.awt.Color(0, 0, 0));
         Del_Profe.setText("Eliminar Docente");
+        Del_Profe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Del_ProfeActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(77, 130, 244));
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Añadir Inasistencia");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(77, 130, 244));
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
@@ -83,10 +111,20 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(77, 130, 244));
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("Modificar Licencia");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(77, 130, 244));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Eliminar Licencia/Inasistencia");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,14 +155,14 @@ public class ControlesAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(Add_Profe)
-                        .addGap(57, 57, 57)
+                        .addGap(31, 31, 31)
                         .addComponent(Mod_Profe)
-                        .addGap(54, 54, 54)
+                        .addGap(80, 80, 80)
                         .addComponent(Del_Profe))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(38, 38, 38)
                         .addComponent(jButton4)
-                        .addGap(18, 18, 18)
+                        .addGap(33, 33, 33)
                         .addComponent(jButton5)
                         .addGap(42, 42, 42)
                         .addComponent(jButton6)
@@ -149,7 +187,66 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+          dispose();
+        setVisible(false);
+
+       CapaGrafica.Licencias.AddLicencia  ver = new AddLicencia();
+        ver.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void Add_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_ProfeActionPerformed
+        // TODO add your handling code here:
+      dispose();
+        setVisible(false);
+
+       CapaGrafica.AddProfesor.AddProfesor  ver = new AddProfesor();
+        ver.setVisible(true);
+    }//GEN-LAST:event_Add_ProfeActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+          dispose();
+        setVisible(false);
+
+       CapaGrafica.Licencias.AddInasistenciaBuscar  ver = new AddInasistenciaBuscar ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void Mod_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mod_ProfeActionPerformed
+        // TODO add your handling code here:
+          dispose();
+        setVisible(false);
+
+       CapaGrafica.ModProfesor.ModProfesor  ver = new ModProfesor();
+        ver.setVisible(true);
+    }//GEN-LAST:event_Mod_ProfeActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+          dispose();
+        setVisible(false);
+
+       CapaGrafica.Licencias.ModLicencia ver = new ModLicencia();
+        ver.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void Del_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Del_ProfeActionPerformed
+        // TODO add your handling code here:
+          dispose();
+        setVisible(false);
+
+       CapaGrafica.EliminarProfesor.DeleteDocente  ver = new DeleteDocente ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_Del_ProfeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+
+       CapaGrafica.Licencias.ModLicenciaBuscar  ver = new ModLicenciaBuscar ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
