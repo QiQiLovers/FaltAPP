@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CapaGrafica.Licencas;
+package CapaGrafica.Licencias;
+
+import CapaGrafica.ControlesAdmin;
 
 /**
  *
@@ -33,8 +35,8 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         CI_Ingresar = new javax.swing.JTextField();
-        Cancelar_BTN = new javax.swing.JButton();
-        Cont_BTN = new javax.swing.JButton();
+        CancelarBTN = new javax.swing.JButton();
+        ContBTN = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -75,16 +77,21 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
             }
         });
 
-        Cancelar_BTN.setBackground(new java.awt.Color(77, 130, 244));
-        Cancelar_BTN.setForeground(new java.awt.Color(0, 0, 0));
-        Cancelar_BTN.setText("Cancelar");
-
-        Cont_BTN.setBackground(new java.awt.Color(77, 130, 244));
-        Cont_BTN.setForeground(new java.awt.Color(0, 0, 0));
-        Cont_BTN.setText("Continuar");
-        Cont_BTN.addActionListener(new java.awt.event.ActionListener() {
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cont_BTNActionPerformed(evt);
+                CancelarBTNActionPerformed(evt);
+            }
+        });
+
+        ContBTN.setBackground(new java.awt.Color(77, 130, 244));
+        ContBTN.setForeground(new java.awt.Color(0, 0, 0));
+        ContBTN.setText("Continuar");
+        ContBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContBTNActionPerformed(evt);
             }
         });
 
@@ -117,9 +124,9 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CI_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(Cancelar_BTN)
+                            .addComponent(CancelarBTN)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Cont_BTN))
+                            .addComponent(ContBTN))
                         .addComponent(jLabel4))
                     .addComponent(jLabel2))
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -142,8 +149,8 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Cancelar_BTN)
-                    .addComponent(Cont_BTN))
+                    .addComponent(CancelarBTN)
+                    .addComponent(ContBTN))
                 .addGap(24, 24, 24))
         );
 
@@ -165,13 +172,25 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CI_IngresarActionPerformed
 
-    private void Cont_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cont_BTNActionPerformed
+    private void ContBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Cont_BTNActionPerformed
+        ModLicencia mod=new ModLicencia();
+        dispose();
+        setVisible(false);
+        mod.setVisible(true);
+    }//GEN-LAST:event_ContBTNActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+        // TODO add your handling code here:
+        ControlesAdmin con = new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        con.setVisible(true);
+    }//GEN-LAST:event_CancelarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,8 +219,8 @@ public class ModLicenciaBuscar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CI_Ingresar;
-    private javax.swing.JButton Cancelar_BTN;
-    private javax.swing.JButton Cont_BTN;
+    private javax.swing.JButton CancelarBTN;
+    private javax.swing.JButton ContBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

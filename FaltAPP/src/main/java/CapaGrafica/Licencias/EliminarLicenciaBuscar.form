@@ -53,9 +53,9 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="CI_Ingresar" min="-2" pref="350" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="Cancelar_BTN" min="-2" max="-2" attributes="0"/>
+                              <Component id="CancelarBTN" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="Cont_BTN" min="-2" max="-2" attributes="0"/>
+                              <Component id="ContBTN" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -83,8 +83,8 @@
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Cancelar_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Cont_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CancelarBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
@@ -143,7 +143,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CI_IngresarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Cancelar_BTN">
+        <Component class="javax.swing.JButton" name="CancelarBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -153,8 +153,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarBTNActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Cont_BTN">
+        <Component class="javax.swing.JButton" name="ContBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -165,7 +168,7 @@
             <Property name="text" type="java.lang.String" value="Continuar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cont_BTNActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContBTNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

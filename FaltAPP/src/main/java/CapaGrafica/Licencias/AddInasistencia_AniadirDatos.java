@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CapaGrafica.Licencas;
+package CapaGrafica.Licencias;
+
+import CapaGrafica.ControlesAdmin;
 
 /**
  *
  * @author tomas
  */
-public class ModLicencia extends javax.swing.JFrame {
+public class AddInasistencia_AniadirDatos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModLicencia.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddInasistencia_AniadirDatos.class.getName());
 
     /**
      * Creates new form AddLicencia
      */
-    public ModLicencia() {
+    public AddInasistencia_AniadirDatos() {
         initComponents();
     }
 
@@ -31,8 +33,6 @@ public class ModLicencia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        FechaDeInico = new javax.swing.JLabel();
-        Ingreso_FechaInicio = new javax.swing.JTextField();
         FechaDeFinalizacion = new javax.swing.JLabel();
         Ingreso_FechaFinal = new javax.swing.JTextField();
         Razon = new javax.swing.JLabel();
@@ -40,8 +40,8 @@ public class ModLicencia extends javax.swing.JFrame {
         Aclaracion = new javax.swing.JLabel();
         Ingreso_Aclaracion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        CancelarBTN = new javax.swing.JButton();
+        TerminarBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +50,7 @@ public class ModLicencia extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(77, 130, 244));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Modificar Licencia");
+        jLabel1.setText("Añadir Licencia");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -69,17 +69,8 @@ public class ModLicencia extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        FechaDeInico.setForeground(new java.awt.Color(0, 0, 0));
-        FechaDeInico.setText("Fecha de Inicio");
-
-        Ingreso_FechaInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ingreso_FechaInicioActionPerformed(evt);
-            }
-        });
-
         FechaDeFinalizacion.setForeground(new java.awt.Color(0, 0, 0));
-        FechaDeFinalizacion.setText("Fecha de Finalización");
+        FechaDeFinalizacion.setText("Fecha en la cual la inasistencia ocurrio");
 
         Ingreso_FechaFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,16 +88,21 @@ public class ModLicencia extends javax.swing.JFrame {
         jLabel3.setText("*Fechas deben tener el formato YYYY/MM/DD");
         jLabel3.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Cancelar");
-
-        jButton2.setBackground(new java.awt.Color(77, 130, 244));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Modificar Licencia");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CancelarBTNActionPerformed(evt);
+            }
+        });
+
+        TerminarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        TerminarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        TerminarBTN.setText("Terminar");
+        TerminarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TerminarBTNActionPerformed(evt);
             }
         });
 
@@ -116,31 +112,39 @@ public class ModLicencia extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Ingreso_Aclaracion)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Ingreso_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Aclaracion)
-                            .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Razon)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(FechaDeInico)
-                                .addGap(18, 18, 18)
-                                .addComponent(FechaDeFinalizacion)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addGap(0, 131, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(Razon)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Aclaracion)
+                                .addGap(0, 240, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(CancelarBTN)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TerminarBTN))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Ingreso_FechaFinal)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(FechaDeFinalizacion)
+                                .addGap(71, 71, 71))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Ingreso_Razon))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Ingreso_Aclaracion)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,15 +152,11 @@ public class ModLicencia extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FechaDeFinalizacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FechaDeInico)
-                    .addComponent(FechaDeFinalizacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ingreso_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Razon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,8 +166,8 @@ public class ModLicencia extends javax.swing.JFrame {
                 .addComponent(Ingreso_Aclaracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(CancelarBTN)
+                    .addComponent(TerminarBTN))
                 .addGap(34, 34, 34))
         );
 
@@ -185,17 +185,31 @@ public class ModLicencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Ingreso_FechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_FechaInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Ingreso_FechaInicioActionPerformed
-
     private void Ingreso_FechaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_FechaFinalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Ingreso_FechaFinalActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        ControlesAdmin con=new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        con.setVisible(true);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_CancelarBTNActionPerformed
+
+    private void TerminarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarBTNActionPerformed
+        // TODO add your handling code here:
+        ControlesAdmin con = new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        con.setVisible(true);
+        
+    }//GEN-LAST:event_TerminarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,20 +233,18 @@ public class ModLicencia extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ModLicencia().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new AddInasistencia_AniadirDatos().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aclaracion;
+    private javax.swing.JButton CancelarBTN;
     private javax.swing.JLabel FechaDeFinalizacion;
-    private javax.swing.JLabel FechaDeInico;
     private javax.swing.JTextField Ingreso_Aclaracion;
     private javax.swing.JTextField Ingreso_FechaFinal;
-    private javax.swing.JTextField Ingreso_FechaInicio;
     private javax.swing.JTextField Ingreso_Razon;
     private javax.swing.JLabel Razon;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton TerminarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

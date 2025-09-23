@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CapaGrafica.Licencas;
+package CapaGrafica.Licencias;
+
+import CapaGrafica.ControlesAdmin;
+import CapaGrafica.LoginAdmin;
 
 /**
  *
@@ -34,7 +37,7 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         CI_Ingresar = new javax.swing.JTextField();
         Cancelar_BTN = new javax.swing.JButton();
-        Cont_BTN = new javax.swing.JButton();
+        Ingresar_BTN = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,12 +84,12 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
             }
         });
 
-        Cont_BTN.setBackground(new java.awt.Color(77, 130, 244));
-        Cont_BTN.setForeground(new java.awt.Color(0, 0, 0));
-        Cont_BTN.setText("Ingresar");
-        Cont_BTN.addActionListener(new java.awt.event.ActionListener() {
+        Ingresar_BTN.setBackground(new java.awt.Color(77, 130, 244));
+        Ingresar_BTN.setForeground(new java.awt.Color(0, 0, 0));
+        Ingresar_BTN.setText("Ingresar");
+        Ingresar_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cont_BTNActionPerformed(evt);
+                Ingresar_BTNActionPerformed(evt);
             }
         });
 
@@ -107,7 +110,7 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(Cancelar_BTN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Cont_BTN))
+                        .addComponent(Ingresar_BTN))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(CI_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -130,7 +133,7 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cancelar_BTN)
-                    .addComponent(Cont_BTN))
+                    .addComponent(Ingresar_BTN))
                 .addGap(24, 24, 24))
         );
 
@@ -152,12 +155,22 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CI_IngresarActionPerformed
 
-    private void Cont_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cont_BTNActionPerformed
+    private void Ingresar_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingresar_BTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Cont_BTNActionPerformed
+        AddInasistencia_AniadirDatos Ina=new AddInasistencia_AniadirDatos();
+        dispose();
+        setVisible(false);
+        Ina.setVisible(true);
+        
+    }//GEN-LAST:event_Ingresar_BTNActionPerformed
 
     private void Cancelar_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancelar_BTNActionPerformed
         // TODO add your handling code here:
+        ControlesAdmin neo= new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        neo.setVisible(true);
+        
     }//GEN-LAST:event_Cancelar_BTNActionPerformed
 
     /**
@@ -188,7 +201,7 @@ public class AddInasistenciaBuscar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CI_Ingresar;
     private javax.swing.JButton Cancelar_BTN;
-    private javax.swing.JButton Cont_BTN;
+    private javax.swing.JButton Ingresar_BTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

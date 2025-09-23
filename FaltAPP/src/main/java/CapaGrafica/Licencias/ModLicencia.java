@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CapaGrafica.Licencas;
+package CapaGrafica.Licencias;
+
+import CapaGrafica.ControlesAdmin;
 
 /**
  *
  * @author tomas
  */
-public class AddLicencia extends javax.swing.JFrame {
+public class ModLicencia extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddLicencia.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModLicencia.class.getName());
 
     /**
      * Creates new form AddLicencia
      */
-    public AddLicencia() {
+    public ModLicencia() {
         initComponents();
     }
 
@@ -40,8 +42,8 @@ public class AddLicencia extends javax.swing.JFrame {
         Aclaracion = new javax.swing.JLabel();
         Ingreso_Aclaracion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        CancelBTN = new javax.swing.JButton();
+        ModLicBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +52,7 @@ public class AddLicencia extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(77, 130, 244));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Añadir Licencia");
+        jLabel1.setText("Modificar Licencia");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,13 +99,23 @@ public class AddLicencia extends javax.swing.JFrame {
         jLabel3.setText("*Fechas deben tener el formato YYYY/MM/DD");
         jLabel3.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Cancelar");
+        CancelBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelBTN.setText("Cancelar");
+        CancelBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelBTNActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(77, 130, 244));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Añadir Licencia");
+        ModLicBTN.setBackground(new java.awt.Color(77, 130, 244));
+        ModLicBTN.setForeground(new java.awt.Color(0, 0, 0));
+        ModLicBTN.setText("Modificar Licencia");
+        ModLicBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModLicBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,9 +141,9 @@ public class AddLicencia extends javax.swing.JFrame {
                                 .addComponent(FechaDeFinalizacion)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(CancelBTN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(ModLicBTN)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3)
@@ -161,8 +173,8 @@ public class AddLicencia extends javax.swing.JFrame {
                 .addComponent(Ingreso_Aclaracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(CancelBTN)
+                    .addComponent(ModLicBTN))
                 .addGap(34, 34, 34))
         );
 
@@ -188,6 +200,27 @@ public class AddLicencia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Ingreso_FechaFinalActionPerformed
 
+    private void ModLicBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModLicBTNActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        
+        ControlesAdmin con = new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        con.setVisible(true);
+    }//GEN-LAST:event_ModLicBTNActionPerformed
+
+    private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
+        // TODO add your handling code here:
+        ControlesAdmin con = new ControlesAdmin();
+        dispose();
+        setVisible(false);
+        con.setVisible(true);
+    }//GEN-LAST:event_CancelBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -210,20 +243,20 @@ public class AddLicencia extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddLicencia().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ModLicencia().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aclaracion;
+    private javax.swing.JButton CancelBTN;
     private javax.swing.JLabel FechaDeFinalizacion;
     private javax.swing.JLabel FechaDeInico;
     private javax.swing.JTextField Ingreso_Aclaracion;
     private javax.swing.JTextField Ingreso_FechaFinal;
     private javax.swing.JTextField Ingreso_FechaInicio;
     private javax.swing.JTextField Ingreso_Razon;
+    private javax.swing.JButton ModLicBTN;
     private javax.swing.JLabel Razon;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

@@ -152,7 +152,7 @@ public class DeleteInfo extends javax.swing.JFrame {
        
         
         
-       dispose();
+        dispose();
         setVisible(false);
         
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
@@ -164,7 +164,7 @@ public class DeleteInfo extends javax.swing.JFrame {
         
         
        
-       dispose();
+        dispose();
         setVisible(false);
        
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
