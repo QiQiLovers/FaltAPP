@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package CapaGrafica;
+package CapaGrafica.ModProfesor;
+
+import CapaGrafica.AddProfesor.*;
 
 /**
  *
  * @author Rodri
  */
-public class AddProfesor extends javax.swing.JFrame {
+public class ModProfesor extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddProfesor.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModProfesor.class.getName());
 
     /**
      * Creates new form AddProfesor
      */
-    public AddProfesor() {
+    public ModProfesor() {
         initComponents();
     }
 
@@ -51,16 +53,16 @@ public class AddProfesor extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(77, 130, 244));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Agregar");
+        jLabel2.setText("Modificar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
                 .addComponent(jLabel2)
-                .addGap(177, 177, 177))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +181,7 @@ public class AddProfesor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton2))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -235,7 +237,7 @@ public class AddProfesor extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddProfesor().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ModProfesor().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
