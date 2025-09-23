@@ -4,7 +4,12 @@
  */
 package CapaGrafica.AddProfesor;
 
+import CapaExepcion.DBException;
 import CapaGrafica.ControlesAdmin;
+import CapaLogica.Profe;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,13 +41,13 @@ public class AddProfesor extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        IngresarCI = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        IngresarNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        IngresarApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        IngresarGrupos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         CancelarBTN = new javax.swing.JToggleButton();
@@ -77,31 +82,31 @@ public class AddProfesor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cedula");
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        IngresarCI.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarCI.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarCI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                IngresarCIActionPerformed(evt);
             }
         });
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarNombre.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarNombre.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Apellido");
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarApellido.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarApellido.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Grupo/s");
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarGrupos.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarGrupos.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
@@ -131,10 +136,10 @@ public class AddProfesor extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jTextField1)
-            .addComponent(jTextField2)
-            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(IngresarCI)
+            .addComponent(IngresarNombre)
+            .addComponent(IngresarApellido, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(IngresarGrupos, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -167,19 +172,19 @@ public class AddProfesor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngresarCI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngresarApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngresarGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -205,9 +210,9 @@ public class AddProfesor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
        dispose();
@@ -219,11 +224,59 @@ public class AddProfesor extends javax.swing.JFrame {
     private void AgregarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDocenteBTNActionPerformed
 
 //ACA TIENE QUE HABER CODIGO PARA PONER AL PROFE EN LA BASE DE DATOS
+if(IngresarCI.getText().isEmpty() || IngresarNombre.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarGrupos.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+    }else{
+        Profe profe= new Profe(); 
+        try {
+                String nombre=IngresarNombre.getText();
+                profe.setNombre(nombre);
+            
+                String apellido=IngresarApellido.getText();
+                profe.setApellido(apellido);
+            
+                String grupos=IngresarGrupos.getText();
+                profe.setGrupos(grupos);       
+            
+        
+             try {
+                    int CI=Integer.parseInt(IngresarCI.getText());
+                    profe.setCI(CI);
+            
+                 } catch (NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero");
+                 }
+             
+             /*
+             fachada.GuardarProfe(profe)
+             JOptionPane.showMessageDialog(this, "Datos guardados correctamente");     
+             
+            } catch (DBException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+         
+                */
+             
+     }catch(Exception ex){
+                Logger.getLogger(Profe.class.getName()).log(Level.SEVERE,null,ex);
+            }         
+            
+    
+    {
+    }
+   
 
-       dispose();
+
+
+dispose();
         setVisible(false);
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
         volver.setVisible(true);
+
+}
+
+
+       
 
     }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
@@ -255,6 +308,10 @@ public class AddProfesor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton AgregarDocenteBTN;
     private javax.swing.JToggleButton CancelarBTN;
+    private javax.swing.JTextField IngresarApellido;
+    private javax.swing.JTextField IngresarCI;
+    private javax.swing.JTextField IngresarGrupos;
+    private javax.swing.JTextField IngresarNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -264,9 +321,5 @@ public class AddProfesor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
