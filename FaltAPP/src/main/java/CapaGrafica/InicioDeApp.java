@@ -43,6 +43,7 @@ public class InicioDeApp extends javax.swing.JFrame {
         jPanel1.setFocusable(false);
 
         AdminIR_Boton.setBackground(new java.awt.Color(77, 130, 244));
+        AdminIR_Boton.setForeground(new java.awt.Color(0, 0, 0));
         AdminIR_Boton.setText("Click Aqui");
         AdminIR_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +52,7 @@ public class InicioDeApp extends javax.swing.JFrame {
         });
 
         UsuarioIR_Boton.setBackground(new java.awt.Color(77, 130, 244));
+        UsuarioIR_Boton.setForeground(new java.awt.Color(0, 0, 0));
         UsuarioIR_Boton.setText("Click Aqui");
         UsuarioIR_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,12 +144,16 @@ public class InicioDeApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsuarioIR_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioIR_BotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioIR_BotonActionPerformed
+       dispose();
+        setVisible(false);
+        PantallaNoAdmin UsuarioIR = new PantallaNoAdmin();
+        UsuarioIR.setVisible(true);    }//GEN-LAST:event_UsuarioIR_BotonActionPerformed
 
     private void AdminIR_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminIR_BotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdminIR_BotonActionPerformed
+       dispose();
+        setVisible(false);
+        LoginAdmin login = new LoginAdmin();
+        login.setVisible(true);    }//GEN-LAST:event_AdminIR_BotonActionPerformed
 
     /**
      * @param args the command line arguments

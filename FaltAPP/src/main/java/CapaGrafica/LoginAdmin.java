@@ -83,6 +83,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel3.setText("Usuario");
 
         IngresarSesion_Boton.setBackground(new java.awt.Color(77, 130, 244));
+        IngresarSesion_Boton.setForeground(new java.awt.Color(0, 0, 0));
         IngresarSesion_Boton.setText("Ingresar Datos");
         IngresarSesion_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,8 +154,14 @@ public class LoginAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_Contrasenia_ingresarActionPerformed
 
     private void IngresarSesion_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarSesion_BotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IngresarSesion_BotonActionPerformed
+     //AGREGAR CODIGO PARA QUE CHEQUE SI EL USUARIO ES ADMIN! 
+        
+        
+        
+        dispose();
+        setVisible(false);
+        ControlesAdmin Entrar = new ControlesAdmin();
+        Entrar.setVisible(true);    }//GEN-LAST:event_IngresarSesion_BotonActionPerformed
 
     /**
      * @param args the command line arguments

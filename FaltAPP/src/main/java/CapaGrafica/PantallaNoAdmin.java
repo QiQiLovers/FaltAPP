@@ -34,7 +34,7 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Grupo1ABTN = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -87,49 +87,67 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jButton1.setText("1ºMA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Grupo1ABTN.setBackground(new java.awt.Color(77, 130, 244));
+        Grupo1ABTN.setForeground(new java.awt.Color(0, 0, 0));
+        Grupo1ABTN.setText("1ºMA");
+        Grupo1ABTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Grupo1ABTNActionPerformed(evt);
             }
         });
 
         jButton2.setBackground(new java.awt.Color(77, 130, 244));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("2ºMA");
 
         jButton3.setBackground(new java.awt.Color(77, 130, 244));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("3ºMA");
 
         jButton4.setBackground(new java.awt.Color(77, 130, 244));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("1ºMB");
 
         jButton5.setBackground(new java.awt.Color(77, 130, 244));
+        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("2ºMB");
 
         jButton6.setBackground(new java.awt.Color(77, 130, 244));
+        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("3ºMB");
 
         jButton7.setBackground(new java.awt.Color(77, 130, 244));
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("3ºMC");
 
         jButton8.setBackground(new java.awt.Color(77, 130, 244));
+        jButton8.setForeground(new java.awt.Color(0, 0, 0));
         jButton8.setText("2ºMC");
 
         jButton9.setBackground(new java.awt.Color(77, 130, 244));
+        jButton9.setForeground(new java.awt.Color(0, 0, 0));
         jButton9.setText("1ºMC");
 
         jButton10.setBackground(new java.awt.Color(77, 130, 244));
+        jButton10.setForeground(new java.awt.Color(0, 0, 0));
         jButton10.setText("3ºMD");
 
         jButton11.setBackground(new java.awt.Color(77, 130, 244));
+        jButton11.setForeground(new java.awt.Color(0, 0, 0));
         jButton11.setText("2ºMD");
 
         jButton12.setBackground(new java.awt.Color(77, 130, 244));
+        jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setText("1ºMD");
 
         jButton13.setBackground(new java.awt.Color(77, 130, 244));
+        jButton13.setForeground(new java.awt.Color(0, 0, 0));
         jButton13.setText("Volver");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -142,7 +160,7 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton4)
-                            .addComponent(jButton1)
+                            .addComponent(Grupo1ABTN)
                             .addComponent(jButton9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +186,7 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(Grupo1ABTN)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -231,9 +249,13 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Grupo1ABTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Grupo1ABTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Grupo1ABTNActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,7 +283,7 @@ public class PantallaNoAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Grupo1ABTN;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
