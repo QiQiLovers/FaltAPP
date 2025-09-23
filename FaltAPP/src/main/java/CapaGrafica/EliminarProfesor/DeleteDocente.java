@@ -69,6 +69,11 @@ public class DeleteDocente extends javax.swing.JFrame {
         jLabel2.setText("CI del docente");
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         BuscarDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
         BuscarDocenteBTN.setForeground(new java.awt.Color(0, 0, 0));
@@ -158,6 +163,10 @@ public class DeleteDocente extends javax.swing.JFrame {
         seguir.setVisible(true);
   
           }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
