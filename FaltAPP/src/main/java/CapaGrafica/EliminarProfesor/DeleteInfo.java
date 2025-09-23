@@ -4,6 +4,8 @@
  */
 package CapaGrafica.EliminarProfesor;
 
+import CapaGrafica.ControlesAdmin;
+
 /**
  *
  * @author Rodri
@@ -31,8 +33,8 @@ public class DeleteInfo extends javax.swing.JFrame {
         Cancelar = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        ContinuarBTN = new javax.swing.JToggleButton();
+        CancelarBTN = new javax.swing.JToggleButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -66,21 +68,21 @@ public class DeleteInfo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jToggleButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("Continuar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        ContinuarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        ContinuarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        ContinuarBTN.setText("Continuar");
+        ContinuarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                ContinuarBTNActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton2.setText("Cancelar");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                CancelarBTNActionPerformed(evt);
             }
         });
 
@@ -104,15 +106,16 @@ public class DeleteInfo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CancelarLayout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(CancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CancelarLayout.createSequentialGroup()
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(CancelarLayout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(ContinuarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5)))
+                .addGap(25, 25, 25))
         );
         CancelarLayout.setVerticalGroup(
             CancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,8 +129,8 @@ public class DeleteInfo extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
+                    .addComponent(ContinuarBTN)
+                    .addComponent(CancelarBTN))
                 .addGap(0, 64, Short.MAX_VALUE))
         );
 
@@ -145,13 +148,28 @@ public class DeleteInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+       
+        
+        
+       dispose();
+        setVisible(false);
+        
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+            }//GEN-LAST:event_CancelarBTNActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void ContinuarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuarBTNActionPerformed
+       //HACER QUE CUANDO ESTE BOTON SE PRESIONE PASEN DOS COSAS, 1 QUE SALGA UN POPUP QUE PREGUNTE POR CONFIRMACION Y 2 QUE BORRE AL PROFE DE LA DATABASE
+        
+        
+       
+       dispose();
+        setVisible(false);
+       
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+            }//GEN-LAST:event_ContinuarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +198,8 @@ public class DeleteInfo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cancelar;
+    private javax.swing.JToggleButton CancelarBTN;
+    private javax.swing.JToggleButton ContinuarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -188,7 +208,5 @@ public class DeleteInfo extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }

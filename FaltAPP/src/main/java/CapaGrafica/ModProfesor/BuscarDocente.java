@@ -4,6 +4,8 @@
  */
 package CapaGrafica.ModProfesor;
 
+import CapaGrafica.ControlesAdmin;
+
 /**
  *
  * @author Rodri
@@ -33,8 +35,8 @@ public class BuscarDocente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        CancelarBTN = new javax.swing.JToggleButton();
+        BuscarBTN = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,13 +70,23 @@ public class BuscarDocente extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jToggleButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("Buscar");
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBTNActionPerformed(evt);
+            }
+        });
 
-        jToggleButton2.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton2.setText("Cancelar");
+        BuscarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        BuscarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        BuscarBTN.setText("Buscar");
+        BuscarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,9 +100,9 @@ public class BuscarDocente extends javax.swing.JFrame {
             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,9 +115,9 @@ public class BuscarDocente extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
-                .addGap(0, 69, Short.MAX_VALUE))
+                    .addComponent(CancelarBTN)
+                    .addComponent(BuscarBTN))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,6 +133,32 @@ public class BuscarDocente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+   
+    
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+
+       dispose();
+        setVisible(false);
+        
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+        
+    }//GEN-LAST:event_CancelarBTNActionPerformed
+
+    private void BuscarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBTNActionPerformed
+       //ACA PONER CODIGO PARA QUE EL CI BUSQUE AL PROFE ADEQUADO Y LO MUESTRE EN LA SIGUIENTE PANTALLA!
+        
+       
+       
+       dispose();
+        setVisible(false);
+       
+        ModProfesor Buscar = new ModProfesor();
+       Buscar.setVisible(true);
+
+
+    }//GEN-LAST:event_BuscarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,12 +186,12 @@ public class BuscarDocente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton BuscarBTN;
+    private javax.swing.JToggleButton CancelarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }

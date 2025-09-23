@@ -4,6 +4,8 @@
  */
 package CapaGrafica.AddProfesor;
 
+import CapaGrafica.ControlesAdmin;
+
 /**
  *
  * @author Rodri
@@ -17,6 +19,8 @@ public class AddProfesor extends javax.swing.JFrame {
      */
     public AddProfesor() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**
@@ -41,8 +45,8 @@ public class AddProfesor extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        CancelarBTN = new javax.swing.JToggleButton();
+        AgregarDocenteBTN = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,19 +110,19 @@ public class AddProfesor extends javax.swing.JFrame {
         jTextArea1.setText("*Si quieres ingresarle al profe mas de un grupo, pon una coma (,) \ny no le pongas espacios EJ(2MD,2MC,1MA)");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jToggleButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton1.setText("Cancelar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                CancelarBTNActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(77, 130, 244));
-        jToggleButton2.setText("Ingresar docente");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        AgregarDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
+        AgregarDocenteBTN.setText("Ingresar docente");
+        AgregarDocenteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                AgregarDocenteBTNActionPerformed(evt);
             }
         });
 
@@ -151,9 +155,9 @@ public class AddProfesor extends javax.swing.JFrame {
                 .addComponent(jScrollPane1))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarDocenteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
         jPanel3Layout.setVerticalGroup(
@@ -180,8 +184,8 @@ public class AddProfesor extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2))
+                    .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgregarDocenteBTN))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -205,13 +209,23 @@ public class AddProfesor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+       dispose();
+        setVisible(false);
+        
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);    }//GEN-LAST:event_CancelarBTNActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    private void AgregarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDocenteBTNActionPerformed
+
+//ACA TIENE QUE HABER CODIGO PARA PONER AL PROFE EN LA BASE DE DATOS
+
+       dispose();
+        setVisible(false);
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+
+    }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,6 +253,8 @@ public class AddProfesor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton AgregarDocenteBTN;
+    private javax.swing.JToggleButton CancelarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,7 +268,5 @@ public class AddProfesor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }

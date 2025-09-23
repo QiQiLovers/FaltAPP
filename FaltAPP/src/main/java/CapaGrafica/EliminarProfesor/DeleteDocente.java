@@ -4,6 +4,8 @@
  */
 package CapaGrafica.EliminarProfesor;
 
+import CapaGrafica.ControlesAdmin;
+
 /**
  *
  * @author Rodri
@@ -33,8 +35,8 @@ public class DeleteDocente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BuscarDocenteBTN = new javax.swing.JButton();
+        CancelarBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,12 +70,21 @@ public class DeleteDocente extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton1.setText("Buscar");
-
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BuscarDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
+        BuscarDocenteBTN.setForeground(new java.awt.Color(0, 0, 0));
+        BuscarDocenteBTN.setText("Buscar");
+        BuscarDocenteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BuscarDocenteBTNActionPerformed(evt);
+            }
+        });
+
+        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CancelarBTN.setText("Cancelar");
+        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBTNActionPerformed(evt);
             }
         });
 
@@ -90,9 +101,9 @@ public class DeleteDocente extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(BuscarDocenteBTN)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(CancelarBTN)
                         .addGap(10, 10, 10))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,8 +116,8 @@ public class DeleteDocente extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(BuscarDocenteBTN)
+                    .addComponent(CancelarBTN))
                 .addGap(61, 61, 61))
         );
 
@@ -124,9 +135,29 @@ public class DeleteDocente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+       
+        
+       dispose();
+        setVisible(false);
+        
+        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+   
+         }//GEN-LAST:event_CancelarBTNActionPerformed
+
+    private void BuscarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTNActionPerformed
+        //HACER QUE ANTES DE CONTINUAR QUE EL CI BUSQUE AL PROFE Y LE LLEVE TODA LA INFO A LA SIGUIENTE PANTALLA PARA SER VISTO
+        
+        
+        
+       dispose();
+        setVisible(false);
+        
+        DeleteInfo seguir = new DeleteInfo();
+        seguir.setVisible(true);
+  
+          }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,8 +185,8 @@ public class DeleteDocente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton BuscarDocenteBTN;
+    private javax.swing.JButton CancelarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
