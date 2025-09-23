@@ -4,6 +4,10 @@
  */
 package CapaGrafica;
 
+import javax.swing.JOptionPane;
+import CapaLogica.Hashutil;
+import CapaPersistencia.CrearUsuario;
+
 /**
  *
  * @author tomas
@@ -30,12 +34,12 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Usuario_Ingresar = new javax.swing.JTextField();
-        Contrasenia_ingresar = new javax.swing.JTextField();
+        UsuarioTXT = new javax.swing.JTextField();
+        ContraseniaTXT = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        IngresarSesion_Boton = new javax.swing.JButton();
+        LoginBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,15 +48,15 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Contraseña");
 
-        Usuario_Ingresar.addActionListener(new java.awt.event.ActionListener() {
+        UsuarioTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Usuario_IngresarActionPerformed(evt);
+                UsuarioTXTActionPerformed(evt);
             }
         });
 
-        Contrasenia_ingresar.addActionListener(new java.awt.event.ActionListener() {
+        ContraseniaTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Contrasenia_ingresarActionPerformed(evt);
+                ContraseniaTXTActionPerformed(evt);
             }
         });
 
@@ -82,12 +86,12 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Usuario");
 
-        IngresarSesion_Boton.setBackground(new java.awt.Color(77, 130, 244));
-        IngresarSesion_Boton.setForeground(new java.awt.Color(0, 0, 0));
-        IngresarSesion_Boton.setText("Ingresar Datos");
-        IngresarSesion_Boton.addActionListener(new java.awt.event.ActionListener() {
+        LoginBTN.setBackground(new java.awt.Color(77, 130, 244));
+        LoginBTN.setForeground(new java.awt.Color(0, 0, 0));
+        LoginBTN.setText("Login");
+        LoginBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarSesion_BotonActionPerformed(evt);
+                LoginBTNActionPerformed(evt);
             }
         });
 
@@ -104,14 +108,14 @@ public class LoginAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Usuario_Ingresar)
-                            .addComponent(Contrasenia_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
+                            .addComponent(UsuarioTXT)
+                            .addComponent(ContraseniaTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(178, 178, 178)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(IngresarSesion_Boton)))
+                        .addGap(154, 154, 154)
+                        .addComponent(LoginBTN)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -121,13 +125,13 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Usuario_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UsuarioTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Contrasenia_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ContraseniaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(IngresarSesion_Boton)
+                .addComponent(LoginBTN)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -145,23 +149,45 @@ public class LoginAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Usuario_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Usuario_IngresarActionPerformed
+    private void UsuarioTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Usuario_IngresarActionPerformed
+    }//GEN-LAST:event_UsuarioTXTActionPerformed
 
-    private void Contrasenia_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Contrasenia_ingresarActionPerformed
+    private void ContraseniaTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseniaTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Contrasenia_ingresarActionPerformed
+    }//GEN-LAST:event_ContraseniaTXTActionPerformed
 
-    private void IngresarSesion_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarSesion_BotonActionPerformed
-     //AGREGAR CODIGO PARA QUE CHEQUE SI EL USUARIO ES ADMIN! 
+    private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
+        // TODO add your handling code here:
         
+        if(UsuarioTXT.getText().isEmpty() && ContraseniaTXT.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Los campos de Usuario y contraseña no pueden estar vacios");
         
+        }else{
+            ControlesAdmin con=new ControlesAdmin();
+            CrearUsuario usu=new CrearUsuario();
+            try{
+            if(usu.loginUsu(UsuarioTXT.getText(), ContraseniaTXT.getText())){
+                dispose();
+                setVisible(false);
+                con.setVisible(true);
+                
+            }else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorectos");
+            }
+                
+            }catch (Exception e) {
+                try {
+                    throw new Exception("Error a la hora de iniciar sesion "+e.getMessage());
+                } catch (Exception ex) {
+                    System.getLogger(LoginAdmin.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+        }
+            
         
-        dispose();
-        setVisible(false);
-        ControlesAdmin Entrar = new ControlesAdmin();
-        Entrar.setVisible(true);    }//GEN-LAST:event_IngresarSesion_BotonActionPerformed
+        }
+        
+    }//GEN-LAST:event_LoginBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,9 +215,9 @@ public class LoginAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Contrasenia_ingresar;
-    private javax.swing.JButton IngresarSesion_Boton;
-    private javax.swing.JTextField Usuario_Ingresar;
+    private javax.swing.JTextField ContraseniaTXT;
+    private javax.swing.JButton LoginBTN;
+    private javax.swing.JTextField UsuarioTXT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
