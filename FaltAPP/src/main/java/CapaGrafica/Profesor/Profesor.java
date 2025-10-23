@@ -7,6 +7,10 @@ package CapaGrafica.Profesor;
 import CapaGrafica.ControlesAdmin;
 import javax.swing.JOptionPane;
 import CapaLogica.Profe;
+import CapaLogica.fachada;
+import java.awt.HeadlessException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -247,7 +251,8 @@ public class Profesor extends javax.swing.JFrame {
 if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
         }else{
-  Profe prof=new Profe();   
+  Profe prof=new Profe();  
+  try{
                 String nombre=IngresarNombre.getText();
                 prof.setNombre(nombre);
                 String apellido=IngresarApellido.getText();
@@ -258,9 +263,17 @@ if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || Ing
                 }catch(NumberFormatException num){
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
+                fachada.IngresarProfe(prof);
+                JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
-
-}
+                            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+                
+                 }
+            
+        }
+                
     }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
     private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
