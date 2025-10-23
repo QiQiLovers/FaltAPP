@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" min="-2" pref="723" max="-2" attributes="0"/>
+          <Component id="jPanel3" alignment="0" pref="782" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -56,21 +56,23 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="CancelarBTN" min="-2" pref="124" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" pref="197" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="BuscarDocenteBTN1" min="-2" pref="163" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ModDocenteBTN" min="-2" pref="149" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="BuscarDocenteBTN1" min="-2" pref="163" max="-2" attributes="0"/>
+                                  <Component id="CancelarBTN" min="-2" pref="124" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="EliminarDocenteBTN" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AgregarDocenteBTN" min="-2" pref="211" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="AgregarDocenteBTN" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                              <Component id="EliminarDocenteBTN" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" pref="197" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -85,15 +87,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="IngresarCI" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="EliminarDocenteBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BuscarDocenteBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ModDocenteBTN" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="IngresarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AgregarDocenteBTN" alignment="3" max="32767" attributes="0"/>
+                      <Component id="EliminarDocenteBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -102,6 +104,7 @@
                       <Component id="IngresarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CancelarBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AgregarDocenteBTN" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -226,7 +229,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresar/Modificar docente"/>
+            <Property name="text" type="java.lang.String" value="Ingresar docente nuevo"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarDocenteBTNActionPerformed"/>
@@ -261,6 +264,20 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ModDocenteBTN">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f4" green="82" red="4d" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Modificar Docente"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModDocenteBTNActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
