@@ -19,10 +19,10 @@ import javax.swing.JOptionPane;
 public class CrearUsuario{
     public Conexion cone=new Conexion();
     public PreparedStatement ps;
-    private static final String CrearUsuario="INSERT INTO FaltAPP.usuarios(Nombre,Contrasenia) VALUES(?,?)";
-    private static final String IniciarSesion = "SELECT Contrasenia FROM FaltAPP.usuarios WHERE Nombre = ?";
-    private String user="Rodri"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
-    private String contra="Aceitunas";
+    private static final String CrearUsuario="INSERT INTO FaltAPP.Administrador(Usuario,Contrasenia) VALUES(?,?)";
+    private static final String IniciarSesion = "SELECT Contrasenia FROM FaltAPP.Administrador WHERE Usuario = ?";
+    private String user="Admin"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
+    private String contra="123";
     
     
     
