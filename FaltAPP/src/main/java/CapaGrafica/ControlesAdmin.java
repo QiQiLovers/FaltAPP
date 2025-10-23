@@ -10,6 +10,7 @@ import CapaGrafica.Licencias.AddInasistenciaBuscar;
 import CapaGrafica.Licencias.AddLicencia;
 import CapaGrafica.Licencias.ModLicencia;
 import CapaGrafica.Licencias.ModLicenciaBuscar;
+import CapaGrafica.Curso.Curso;
 
 /**
  *
@@ -42,6 +43,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        CursoBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,13 +107,24 @@ public class ControlesAdmin extends javax.swing.JFrame {
             }
         });
 
+        CursoBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CursoBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CursoBTN.setText("Curso");
+        CursoBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CursoBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(Add_Profe)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Add_Profe)
+                    .addComponent(CursoBTN))
                 .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
@@ -139,7 +152,9 @@ public class ControlesAdmin extends javax.swing.JFrame {
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(Add_Profe)))
+                        .addComponent(Add_Profe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CursoBTN)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -202,6 +217,14 @@ public class ControlesAdmin extends javax.swing.JFrame {
         ver.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
+        dispose();
+        setVisible(false);
+
+       CapaGrafica.Curso.Curso  ver = new Curso ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_CursoBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +252,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add_Profe;
+    private javax.swing.JButton CursoBTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
