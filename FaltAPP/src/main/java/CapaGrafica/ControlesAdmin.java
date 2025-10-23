@@ -6,11 +6,9 @@ package CapaGrafica;
 
 import CapaGrafica.AddProfesor.AddProfesor;
 
-import CapaGrafica.Licencias.AddInasistenciaBuscar;
-import CapaGrafica.Licencias.AddLicencia;
-import CapaGrafica.Licencias.ModLicencia;
-import CapaGrafica.Licencias.ModLicenciaBuscar;
-import CapaGrafica.Curso.Curso;
+
+import CapaGrafica.Licencias.Licencia;
+import CapaGrafica.Curso.asd;
 
 /**
  *
@@ -177,7 +175,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
           dispose();
         setVisible(false);
 
-       CapaGrafica.Licencias.AddLicencia  ver = new AddLicencia();
+       CapaGrafica.Licencias.Licencia  ver = new Licencia();
         ver.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -191,37 +189,22 @@ public class ControlesAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_Add_ProfeActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-          dispose();
-        setVisible(false);
 
-       CapaGrafica.Licencias.AddInasistenciaBuscar  ver = new AddInasistenciaBuscar ();
-        ver.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-          dispose();
-        setVisible(false);
 
-       CapaGrafica.Licencias.ModLicencia ver = new ModLicencia();
-        ver.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        setVisible(false);
 
-       CapaGrafica.Licencias.ModLicenciaBuscar  ver = new ModLicenciaBuscar ();
-        ver.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
         dispose();
         setVisible(false);
 
-       CapaGrafica.Curso.Curso  ver = new Curso ();
+       CapaGrafica.Curso.asd  ver = new asd ();
         ver.setVisible(true);
     }//GEN-LAST:event_CursoBTNActionPerformed
 

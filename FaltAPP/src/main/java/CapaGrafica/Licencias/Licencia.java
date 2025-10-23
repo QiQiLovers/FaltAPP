@@ -10,14 +10,14 @@ import CapaGrafica.ControlesAdmin;
  *
  * @author tomas
  */
-public class AddLicencia extends javax.swing.JFrame {
+public class Licencia extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddLicencia.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Licencia.class.getName());
 
     /**
      * Creates new form AddLicencia
      */
-    public AddLicencia() {
+    public Licencia() {
         initComponents();
     }
 
@@ -44,6 +44,13 @@ public class AddLicencia extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        FechaDeInico1 = new javax.swing.JLabel();
+        Ingreso_FechaInicio1 = new javax.swing.JTextField();
+        BuscarLicenciaBTN = new javax.swing.JButton();
+        EliminarBTN = new javax.swing.JButton();
+        ModificarBTN = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +79,7 @@ public class AddLicencia extends javax.swing.JFrame {
         );
 
         FechaDeInico.setForeground(new java.awt.Color(0, 0, 0));
+        FechaDeInico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FechaDeInico.setText("Fecha de Inicio");
 
         Ingreso_FechaInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +89,7 @@ public class AddLicencia extends javax.swing.JFrame {
         });
 
         FechaDeFinalizacion.setForeground(new java.awt.Color(0, 0, 0));
+        FechaDeFinalizacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FechaDeFinalizacion.setText("Fecha de Finalización");
 
         Ingreso_FechaFinal.addActionListener(new java.awt.event.ActionListener() {
@@ -90,9 +99,17 @@ public class AddLicencia extends javax.swing.JFrame {
         });
 
         Razon.setForeground(new java.awt.Color(0, 0, 0));
+        Razon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Razon.setText("Razón");
 
+        Ingreso_Razon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ingreso_RazonActionPerformed(evt);
+            }
+        });
+
         Aclaracion.setForeground(new java.awt.Color(0, 0, 0));
+        Aclaracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Aclaracion.setText("Aclaración (Opcional)");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -117,6 +134,49 @@ public class AddLicencia extends javax.swing.JFrame {
             }
         });
 
+        FechaDeInico1.setForeground(new java.awt.Color(0, 0, 0));
+        FechaDeInico1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        FechaDeInico1.setText("Cedula");
+
+        Ingreso_FechaInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ingreso_FechaInicio1ActionPerformed(evt);
+            }
+        });
+
+        BuscarLicenciaBTN.setBackground(new java.awt.Color(77, 130, 244));
+        BuscarLicenciaBTN.setForeground(new java.awt.Color(0, 0, 0));
+        BuscarLicenciaBTN.setText("Buscar Licencia");
+        BuscarLicenciaBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarLicenciaBTNActionPerformed(evt);
+            }
+        });
+
+        EliminarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        EliminarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        EliminarBTN.setText("Eliminar Licencia");
+        EliminarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarBTNActionPerformed(evt);
+            }
+        });
+
+        ModificarBTN.setBackground(new java.awt.Color(77, 130, 244));
+        ModificarBTN.setForeground(new java.awt.Color(0, 0, 0));
+        ModificarBTN.setText("Modificar Licencia");
+        ModificarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarBTNActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Para buscar y eliminar se debe ingresar: \nCedula y Fecha de Inicio\n\nPara modificar es recomendado \nprimero buscar la licencia y despues modificarla");
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -125,29 +185,39 @@ public class AddLicencia extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Ingreso_Aclaracion)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(FechaDeInico1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(412, 412, 412))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Ingreso_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Aclaracion)
-                            .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Razon)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Ingreso_FechaInicio1)
+                                    .addComponent(FechaDeInico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Ingreso_FechaInicio)
+                                    .addComponent(FechaDeFinalizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Ingreso_FechaFinal)
+                                    .addComponent(Razon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BuscarLicenciaBTN)
+                                    .addComponent(EliminarBTN)
+                                    .addComponent(ModificarBTN)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(FechaDeInico)
-                                .addGap(18, 18, 18)
-                                .addComponent(FechaDeFinalizacion)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                                .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 131, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Ingreso_Aclaracion)
+                        .addComponent(Aclaracion, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,23 +225,37 @@ public class AddLicencia extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
+                .addGap(6, 6, 6)
+                .addComponent(FechaDeInico1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Ingreso_FechaInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FechaDeInico)
+                            .addComponent(BuscarLicenciaBTN))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Ingreso_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EliminarBTN))
+                        .addGap(18, 18, 18)
+                        .addComponent(FechaDeFinalizacion))
+                    .addComponent(ModificarBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Razon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FechaDeInico)
-                    .addComponent(FechaDeFinalizacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ingreso_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ingreso_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Razon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ingreso_Razon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Aclaracion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ingreso_Aclaracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Ingreso_Aclaracion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -218,6 +302,26 @@ public class AddLicencia extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void Ingreso_FechaInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_FechaInicio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Ingreso_FechaInicio1ActionPerformed
+
+    private void Ingreso_RazonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_RazonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Ingreso_RazonActionPerformed
+
+    private void BuscarLicenciaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarLicenciaBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarLicenciaBTNActionPerformed
+
+    private void EliminarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarBTNActionPerformed
+
+    private void ModificarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,17 +344,22 @@ public class AddLicencia extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddLicencia().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Licencia().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aclaracion;
+    private javax.swing.JButton BuscarLicenciaBTN;
+    private javax.swing.JButton EliminarBTN;
     private javax.swing.JLabel FechaDeFinalizacion;
     private javax.swing.JLabel FechaDeInico;
+    private javax.swing.JLabel FechaDeInico1;
     private javax.swing.JTextField Ingreso_Aclaracion;
     private javax.swing.JTextField Ingreso_FechaFinal;
     private javax.swing.JTextField Ingreso_FechaInicio;
+    private javax.swing.JTextField Ingreso_FechaInicio1;
     private javax.swing.JTextField Ingreso_Razon;
+    private javax.swing.JButton ModificarBTN;
     private javax.swing.JLabel Razon;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -258,5 +367,7 @@ public class AddLicencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
