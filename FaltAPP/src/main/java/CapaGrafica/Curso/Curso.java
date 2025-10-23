@@ -4,8 +4,10 @@
  */
 package CapaGrafica.Curso;
 
-import CapaGrafica.Curso.*;
 import CapaGrafica.ControlesAdmin;
+import CapaLogica.curso;
+import CapaLogica.fachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,9 +41,9 @@ public class Curso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         IngresarCI = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        IngresarNombre = new javax.swing.JTextField();
+        IngresarMateria = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        IngresarApellido = new javax.swing.JTextField();
+        IngresarGrupo = new javax.swing.JTextField();
         VolverBTN = new javax.swing.JToggleButton();
         AgregarCursoBTN = new javax.swing.JToggleButton();
         EliminarCursoBTN = new javax.swing.JToggleButton();
@@ -94,15 +96,15 @@ public class Curso extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Materia");
 
-        IngresarNombre.setBackground(new java.awt.Color(204, 204, 204));
-        IngresarNombre.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarMateria.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarMateria.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Grupo");
 
-        IngresarApellido.setBackground(new java.awt.Color(204, 204, 204));
-        IngresarApellido.setForeground(new java.awt.Color(0, 0, 0));
+        IngresarGrupo.setBackground(new java.awt.Color(204, 204, 204));
+        IngresarGrupo.setForeground(new java.awt.Color(0, 0, 0));
 
         VolverBTN.setBackground(new java.awt.Color(77, 130, 244));
         VolverBTN.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,8 +170,8 @@ public class Curso extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(IngresarApellido)
-                    .addComponent(IngresarNombre)
+                    .addComponent(IngresarGrupo)
+                    .addComponent(IngresarMateria)
                     .addComponent(IngresarCI)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -203,7 +205,6 @@ public class Curso extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -214,14 +215,14 @@ public class Curso extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(ModCursoBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EliminarCursoBTN))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EliminarCursoBTN)
+                            .addComponent(IngresarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IngresarApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IngresarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -262,13 +263,32 @@ public class Curso extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarCursoBTNActionPerformed
 
     private void AgregarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCursoBTNActionPerformed
+if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+        }else{
+  curso curso=new curso();  
+  try{
+                String materia=IngresarMateria.getText();
+                curso.setMateria(materia);
+                String grupo=IngresarGrupo.getText();
+                curso.setGrupo(grupo);
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                curso.setCIProfe(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
+                fachada.IngresarProfe(curso);
+                JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
-        //ACA TIENE QUE HABER CODIGO PARA PONER AL PROFE EN LA BASE DE DATOS
-
-        dispose();
-        setVisible(false);
-        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
-        volver.setVisible(true);
+                            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+                
+                 }
+            
+        }            
+        
     }//GEN-LAST:event_AgregarCursoBTNActionPerformed
 
     private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
@@ -315,9 +335,9 @@ public class Curso extends javax.swing.JFrame {
     private javax.swing.JToggleButton AgregarCursoBTN;
     private javax.swing.JToggleButton BuscarDocenteBTN1;
     private javax.swing.JToggleButton EliminarCursoBTN;
-    private javax.swing.JTextField IngresarApellido;
     private javax.swing.JTextField IngresarCI;
-    private javax.swing.JTextField IngresarNombre;
+    private javax.swing.JTextField IngresarGrupo;
+    private javax.swing.JTextField IngresarMateria;
     private javax.swing.JToggleButton ModCursoBTN;
     private javax.swing.JToggleButton VolverBTN;
     private javax.swing.JLabel jLabel1;

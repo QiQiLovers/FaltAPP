@@ -46,8 +46,8 @@
               <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="IngresarApellido" alignment="0" max="32767" attributes="0"/>
-                      <Component id="IngresarNombre" alignment="0" max="32767" attributes="0"/>
+                      <Component id="IngresarGrupo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="IngresarMateria" alignment="0" max="32767" attributes="0"/>
                       <Component id="IngresarCI" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
@@ -90,7 +90,6 @@
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -103,15 +102,15 @@
                               <Component id="ModCursoBTN" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="IngresarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="EliminarCursoBTN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="IngresarMateria" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="IngresarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IngresarGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -201,7 +200,7 @@
             <Property name="text" type="java.lang.String" value="Materia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="IngresarNombre">
+        <Component class="javax.swing.JTextField" name="IngresarMateria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -220,7 +219,7 @@
             <Property name="text" type="java.lang.String" value="Grupo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="IngresarApellido">
+        <Component class="javax.swing.JTextField" name="IngresarGrupo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
