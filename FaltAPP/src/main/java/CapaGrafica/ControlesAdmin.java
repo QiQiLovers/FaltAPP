@@ -4,14 +4,14 @@
  */
 package CapaGrafica;
 
-import CapaGrafica.AddProfesor.AddProfesor;
+import CapaGrafica.Profesor.AddProfesor;
 
 
 import CapaGrafica.Licencias.Licencia;
-import CapaGrafica.Curso.asd;
+import CapaGrafica.Curso.Curso;
 
 /**
- *
+ 
  * @author tomas
  */
 public class ControlesAdmin extends javax.swing.JFrame {
@@ -184,18 +184,14 @@ public class ControlesAdmin extends javax.swing.JFrame {
       dispose();
         setVisible(false);
 
-       CapaGrafica.AddProfesor.AddProfesor  ver = new AddProfesor();
+        CapaGrafica.Profesor.AddProfesor  ver = new AddProfesor();
         ver.setVisible(true);
     }//GEN-LAST:event_Add_ProfeActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
     }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
     }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -204,7 +200,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
         dispose();
         setVisible(false);
 
-       CapaGrafica.Curso.asd  ver = new asd ();
+       CapaGrafica.Curso.Curso  ver = new Curso ();
         ver.setVisible(true);
     }//GEN-LAST:event_CursoBTNActionPerformed
 
