@@ -21,8 +21,8 @@ public class CrearUsuario{
     public PreparedStatement ps;
     private static final String CrearUsuario="INSERT INTO FaltAPP.usuarios(Nombre,Contrasenia) VALUES(?,?)";
     private static final String IniciarSesion = "SELECT Contrasenia FROM FaltAPP.usuarios WHERE Nombre = ?";
-    private String user="Admin"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
-    private String contra="1234";
+    private String user="Rodri"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
+    private String contra="Aceitunas";
     
     
     
@@ -39,6 +39,7 @@ public class CrearUsuario{
             ps.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Usuario Creado con exito");
+            con.close();
         
         }catch (Exception e) {
             throw new Exception("Error a la hora de crear usuario "+e.getMessage());
@@ -61,6 +62,7 @@ public class CrearUsuario{
                 return Hashutil.checkPass(password, hash);
             }
 
+            con.close();
         } catch (SQLException e) {
             throw new SQLException("Error a la hora de iniciar sesion "+e.getMessage());
 
