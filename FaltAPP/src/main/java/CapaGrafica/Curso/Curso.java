@@ -42,12 +42,12 @@ public class Curso extends javax.swing.JFrame {
         IngresarNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         IngresarApellido = new javax.swing.JTextField();
-        CancelarBTN = new javax.swing.JToggleButton();
+        VolverBTN = new javax.swing.JToggleButton();
         AgregarCursoBTN = new javax.swing.JToggleButton();
-        EliminarDocenteBTN = new javax.swing.JToggleButton();
+        EliminarCursoBTN = new javax.swing.JToggleButton();
         BuscarDocenteBTN1 = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
-        ModDocenteBTN = new javax.swing.JToggleButton();
+        ModCursoBTN = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -67,14 +67,15 @@ public class Curso extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
         );
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,12 +104,12 @@ public class Curso extends javax.swing.JFrame {
         IngresarApellido.setBackground(new java.awt.Color(204, 204, 204));
         IngresarApellido.setForeground(new java.awt.Color(0, 0, 0));
 
-        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
-        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
-        CancelarBTN.setText("Cancelar");
-        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
+        VolverBTN.setBackground(new java.awt.Color(77, 130, 244));
+        VolverBTN.setForeground(new java.awt.Color(0, 0, 0));
+        VolverBTN.setText("Volver");
+        VolverBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarBTNActionPerformed(evt);
+                VolverBTNActionPerformed(evt);
             }
         });
 
@@ -121,12 +122,12 @@ public class Curso extends javax.swing.JFrame {
             }
         });
 
-        EliminarDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
-        EliminarDocenteBTN.setForeground(new java.awt.Color(0, 0, 0));
-        EliminarDocenteBTN.setText("Eliminar Curso");
-        EliminarDocenteBTN.addActionListener(new java.awt.event.ActionListener() {
+        EliminarCursoBTN.setBackground(new java.awt.Color(77, 130, 244));
+        EliminarCursoBTN.setForeground(new java.awt.Color(0, 0, 0));
+        EliminarCursoBTN.setText("Eliminar Curso");
+        EliminarCursoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarDocenteBTNActionPerformed(evt);
+                EliminarCursoBTNActionPerformed(evt);
             }
         });
 
@@ -139,12 +140,12 @@ public class Curso extends javax.swing.JFrame {
             }
         });
 
-        ModDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
-        ModDocenteBTN.setForeground(new java.awt.Color(0, 0, 0));
-        ModDocenteBTN.setText("Modificar Curso");
-        ModDocenteBTN.addActionListener(new java.awt.event.ActionListener() {
+        ModCursoBTN.setBackground(new java.awt.Color(77, 130, 244));
+        ModCursoBTN.setForeground(new java.awt.Color(0, 0, 0));
+        ModCursoBTN.setText("Modificar Curso");
+        ModCursoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModDocenteBTNActionPerformed(evt);
+                ModCursoBTNActionPerformed(evt);
             }
         });
 
@@ -175,7 +176,7 @@ public class Curso extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VolverBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AgregarCursoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,8 +189,8 @@ public class Curso extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BuscarDocenteBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EliminarDocenteBTN)
-                            .addComponent(ModDocenteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EliminarCursoBTN)
+                            .addComponent(ModCursoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -211,11 +212,11 @@ public class Curso extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(ModDocenteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ModCursoBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(IngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EliminarDocenteBTN))
+                            .addComponent(EliminarCursoBTN))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,7 +225,7 @@ public class Curso extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CancelarBTN)
+                            .addComponent(VolverBTN)
                             .addComponent(AgregarCursoBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -256,9 +257,9 @@ public class Curso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscarDocenteBTN1ActionPerformed
 
-    private void EliminarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDocenteBTNActionPerformed
+    private void EliminarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCursoBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EliminarDocenteBTNActionPerformed
+    }//GEN-LAST:event_EliminarCursoBTNActionPerformed
 
     private void AgregarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCursoBTNActionPerformed
 
@@ -270,20 +271,20 @@ public class Curso extends javax.swing.JFrame {
         volver.setVisible(true);
     }//GEN-LAST:event_AgregarCursoBTNActionPerformed
 
-    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+    private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
         dispose();
         setVisible(false);
 
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
-    }//GEN-LAST:event_CancelarBTNActionPerformed
+    }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IngresarCIActionPerformed
 
-    private void ModDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModDocenteBTNActionPerformed
+    private void ModCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModCursoBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ModDocenteBTNActionPerformed
+    }//GEN-LAST:event_ModCursoBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,12 +314,12 @@ public class Curso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton AgregarCursoBTN;
     private javax.swing.JToggleButton BuscarDocenteBTN1;
-    private javax.swing.JToggleButton CancelarBTN;
-    private javax.swing.JToggleButton EliminarDocenteBTN;
+    private javax.swing.JToggleButton EliminarCursoBTN;
     private javax.swing.JTextField IngresarApellido;
     private javax.swing.JTextField IngresarCI;
     private javax.swing.JTextField IngresarNombre;
-    private javax.swing.JToggleButton ModDocenteBTN;
+    private javax.swing.JToggleButton ModCursoBTN;
+    private javax.swing.JToggleButton VolverBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

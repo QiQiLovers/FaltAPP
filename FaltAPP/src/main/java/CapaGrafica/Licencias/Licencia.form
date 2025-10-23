@@ -47,7 +47,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="AniadirBTN" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="Ingreso_Aclaracion" max="32767" attributes="0"/>
                           <Component id="Aclaracion" pref="592" max="32767" attributes="0"/>
@@ -62,7 +62,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel3" max="32767" attributes="0"/>
-                              <Component id="Ingreso_FechaInicio1" max="32767" attributes="0"/>
+                              <Component id="IngresoNombre" max="32767" attributes="0"/>
                               <Component id="FechaDeInico" alignment="0" max="32767" attributes="0"/>
                               <Component id="Ingreso_FechaInicio" alignment="0" max="32767" attributes="0"/>
                               <Component id="FechaDeFinalizacion" alignment="0" max="32767" attributes="0"/>
@@ -81,7 +81,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="309" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="VolverBTN" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -96,7 +96,7 @@
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Component id="FechaDeInico1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Ingreso_FechaInicio1" min="-2" max="-2" attributes="0"/>
+                  <Component id="IngresoNombre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
@@ -131,8 +131,8 @@
                   <Component id="Ingreso_Aclaracion" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="VolverBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AniadirBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
@@ -150,20 +150,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" alignment="0" pref="28" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -173,6 +165,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir Licencia"/>
               </Properties>
             </Component>
@@ -240,7 +233,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="VolverBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -248,13 +241,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverBTNActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="AniadirBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -265,7 +258,7 @@
             <Property name="text" type="java.lang.String" value="A&#xf1;adir Licencia"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AniadirBTNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="FechaDeInico1">
@@ -277,9 +270,9 @@
             <Property name="text" type="java.lang.String" value="Cedula"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Ingreso_FechaInicio1">
+        <Component class="javax.swing.JTextField" name="IngresoNombre">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ingreso_FechaInicio1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IngresoNombreActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BuscarLicenciaBTN">

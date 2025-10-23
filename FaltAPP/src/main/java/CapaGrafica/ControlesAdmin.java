@@ -4,7 +4,7 @@
  */
 package CapaGrafica;
 
-import CapaGrafica.Profesor.AddProfesor;
+import CapaGrafica.Profesor.Profesor;
 
 
 import CapaGrafica.Licencias.Licencia;
@@ -184,7 +184,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
       dispose();
         setVisible(false);
 
-        CapaGrafica.Profesor.AddProfesor  ver = new AddProfesor();
+        CapaGrafica.Profesor.Profesor  ver = new Profesor();
         ver.setVisible(true);
     }//GEN-LAST:event_Add_ProfeActionPerformed
 

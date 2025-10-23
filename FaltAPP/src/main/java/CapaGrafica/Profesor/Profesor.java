@@ -5,19 +5,21 @@
 package CapaGrafica.Profesor;
 
 import CapaGrafica.ControlesAdmin;
+import javax.swing.JOptionPane;
+import CapaLogica.Profe;
 
 /**
  *
  * @author Rodri
  */
-public class AddProfesor extends javax.swing.JFrame {
+public class Profesor extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddProfesor.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Profesor.class.getName());
 
     /**
      * Creates new form AddProfesor
      */
-    public AddProfesor() {
+    public Profesor() {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(0);
@@ -41,10 +43,10 @@ public class AddProfesor extends javax.swing.JFrame {
         IngresarNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         IngresarApellido = new javax.swing.JTextField();
-        CancelarBTN = new javax.swing.JToggleButton();
+        VolverBTN = new javax.swing.JToggleButton();
         AgregarDocenteBTN = new javax.swing.JToggleButton();
         EliminarDocenteBTN = new javax.swing.JToggleButton();
-        BuscarDocenteBTN1 = new javax.swing.JToggleButton();
+        BuscarDocenteBTN = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         ModDocenteBTN = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,14 +66,13 @@ public class AddProfesor extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -100,12 +101,12 @@ public class AddProfesor extends javax.swing.JFrame {
         IngresarApellido.setBackground(new java.awt.Color(204, 204, 204));
         IngresarApellido.setForeground(new java.awt.Color(0, 0, 0));
 
-        CancelarBTN.setBackground(new java.awt.Color(77, 130, 244));
-        CancelarBTN.setForeground(new java.awt.Color(0, 0, 0));
-        CancelarBTN.setText("Cancelar");
-        CancelarBTN.addActionListener(new java.awt.event.ActionListener() {
+        VolverBTN.setBackground(new java.awt.Color(77, 130, 244));
+        VolverBTN.setForeground(new java.awt.Color(0, 0, 0));
+        VolverBTN.setText("Volver");
+        VolverBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarBTNActionPerformed(evt);
+                VolverBTNActionPerformed(evt);
             }
         });
 
@@ -127,12 +128,12 @@ public class AddProfesor extends javax.swing.JFrame {
             }
         });
 
-        BuscarDocenteBTN1.setBackground(new java.awt.Color(77, 130, 244));
-        BuscarDocenteBTN1.setForeground(new java.awt.Color(0, 0, 0));
-        BuscarDocenteBTN1.setText("Buscar");
-        BuscarDocenteBTN1.addActionListener(new java.awt.event.ActionListener() {
+        BuscarDocenteBTN.setBackground(new java.awt.Color(77, 130, 244));
+        BuscarDocenteBTN.setForeground(new java.awt.Color(0, 0, 0));
+        BuscarDocenteBTN.setText("Buscar");
+        BuscarDocenteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarDocenteBTN1ActionPerformed(evt);
+                BuscarDocenteBTNActionPerformed(evt);
             }
         });
 
@@ -159,7 +160,7 @@ public class AddProfesor extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(CancelarBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VolverBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(AgregarDocenteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -177,7 +178,7 @@ public class AddProfesor extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ModDocenteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EliminarDocenteBTN)
-                    .addComponent(BuscarDocenteBTN1))
+                    .addComponent(BuscarDocenteBTN))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -189,7 +190,7 @@ public class AddProfesor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IngresarCI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BuscarDocenteBTN1))
+                    .addComponent(BuscarDocenteBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -208,23 +209,23 @@ public class AddProfesor extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CancelarBTN)
+                            .addComponent(VolverBTN)
                             .addComponent(AgregarDocenteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(40, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 782, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -234,30 +235,40 @@ public class AddProfesor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
+    private void BuscarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarDocenteBTN1ActionPerformed
+    }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
 
     private void EliminarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDocenteBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarDocenteBTNActionPerformed
 
     private void AgregarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDocenteBTNActionPerformed
+if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+        }else{
+  Profe prof=new Profe();   
+                String nombre=IngresarNombre.getText();
+                prof.setNombre(nombre);
+                String apellido=IngresarApellido.getText();
+                prof.setApellido(apellido);
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                prof.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
 
-        //ACA TIENE QUE HABER CODIGO PARA PONER AL PROFE EN LA BASE DE DATOS
 
-        dispose();
-        setVisible(false);
-        CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
-        volver.setVisible(true);
+}
     }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
-    private void CancelarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBTNActionPerformed
+    private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
         dispose();
         setVisible(false);
 
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
-    }//GEN-LAST:event_CancelarBTNActionPerformed
+    }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
         // TODO add your handling code here:
@@ -289,18 +300,18 @@ public class AddProfesor extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AddProfesor().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Profesor().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton AgregarDocenteBTN;
-    private javax.swing.JToggleButton BuscarDocenteBTN1;
-    private javax.swing.JToggleButton CancelarBTN;
+    private javax.swing.JToggleButton BuscarDocenteBTN;
     private javax.swing.JToggleButton EliminarDocenteBTN;
     private javax.swing.JTextField IngresarApellido;
     private javax.swing.JTextField IngresarCI;
     private javax.swing.JTextField IngresarNombre;
     private javax.swing.JToggleButton ModDocenteBTN;
+    private javax.swing.JToggleButton VolverBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

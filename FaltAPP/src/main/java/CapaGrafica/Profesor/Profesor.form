@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" alignment="0" pref="782" max="32767" attributes="0"/>
+          <Component id="jPanel3" min="-2" pref="670" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" max="32767" attributes="0"/>
+          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -47,7 +47,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="CancelarBTN" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Component id="VolverBTN" min="-2" pref="124" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Component id="AgregarDocenteBTN" min="-2" pref="211" max="-2" attributes="0"/>
                       </Group>
@@ -69,7 +69,7 @@
                       </Group>
                       <Component id="ModDocenteBTN" min="-2" pref="149" max="-2" attributes="0"/>
                       <Component id="EliminarDocenteBTN" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="BuscarDocenteBTN1" min="-2" max="-2" attributes="0"/>
+                      <Component id="BuscarDocenteBTN" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -84,7 +84,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="IngresarCI" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BuscarDocenteBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BuscarDocenteBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -107,14 +107,14 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CancelarBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VolverBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="AgregarDocenteBTN" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -132,16 +132,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" pref="672" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel2" alignment="0" pref="30" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -217,7 +216,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="CancelarBTN">
+        <Component class="javax.swing.JToggleButton" name="VolverBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -225,10 +224,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarBTNActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverBTNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="AgregarDocenteBTN">
@@ -259,7 +258,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarDocenteBTNActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="BuscarDocenteBTN1">
+        <Component class="javax.swing.JToggleButton" name="BuscarDocenteBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -270,7 +269,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarDocenteBTN1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarDocenteBTNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">

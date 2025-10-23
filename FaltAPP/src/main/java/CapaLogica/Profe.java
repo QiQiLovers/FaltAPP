@@ -6,7 +6,6 @@ public class Profe {
     private int CI;
     private String nombre;
     private String apellido;
-    private String grupos;
 
     
     public int getCI() {
@@ -31,14 +30,6 @@ public class Profe {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(String grupos) {
-        this.grupos = grupos;
     }
     
     

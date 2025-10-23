@@ -6,8 +6,8 @@ package CapaLogica;
 
 /**
  *
- * @author shiro
+ * @author tomas
  */
-public class Test {
-    int hola=10;
+public class fachada {
+    
 }
