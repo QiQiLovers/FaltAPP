@@ -5,12 +5,12 @@
 package CapaGrafica;
 
 import CapaGrafica.AddProfesor.AddProfesor;
-import CapaGrafica.EliminarProfesor.DeleteDocente;
+
 import CapaGrafica.Licencias.AddInasistenciaBuscar;
 import CapaGrafica.Licencias.AddLicencia;
 import CapaGrafica.Licencias.ModLicencia;
 import CapaGrafica.Licencias.ModLicenciaBuscar;
-import CapaGrafica.ModProfesor.ModProfesor;
+import CapaGrafica.Curso.Curso;
 
 /**
  *
@@ -39,12 +39,11 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Add_Profe = new javax.swing.JButton();
-        Mod_Profe = new javax.swing.JButton();
-        Del_Profe = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        CursoBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,28 +64,10 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
         Add_Profe.setBackground(new java.awt.Color(77, 130, 244));
         Add_Profe.setForeground(new java.awt.Color(0, 0, 0));
-        Add_Profe.setText("Añadir Docente");
+        Add_Profe.setText("Profesor");
         Add_Profe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Add_ProfeActionPerformed(evt);
-            }
-        });
-
-        Mod_Profe.setBackground(new java.awt.Color(77, 130, 244));
-        Mod_Profe.setForeground(new java.awt.Color(0, 0, 0));
-        Mod_Profe.setText("Modificar Docente");
-        Mod_Profe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Mod_ProfeActionPerformed(evt);
-            }
-        });
-
-        Del_Profe.setBackground(new java.awt.Color(77, 130, 244));
-        Del_Profe.setForeground(new java.awt.Color(0, 0, 0));
-        Del_Profe.setText("Eliminar Docente");
-        Del_Profe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Del_ProfeActionPerformed(evt);
             }
         });
 
@@ -126,19 +107,27 @@ public class ControlesAdmin extends javax.swing.JFrame {
             }
         });
 
+        CursoBTN.setBackground(new java.awt.Color(77, 130, 244));
+        CursoBTN.setForeground(new java.awt.Color(0, 0, 0));
+        CursoBTN.setText("Curso");
+        CursoBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CursoBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Add_Profe)
-                    .addComponent(Mod_Profe)
-                    .addComponent(Del_Profe))
-                .addGap(34, 34, 34)
+                    .addComponent(CursoBTN))
+                .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -153,13 +142,6 @@ public class ControlesAdmin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(Add_Profe)
-                        .addGap(31, 31, 31)
-                        .addComponent(Mod_Profe)
-                        .addGap(80, 80, 80)
-                        .addComponent(Del_Profe))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jButton4)
                         .addGap(33, 33, 33)
@@ -167,8 +149,13 @@ public class ControlesAdmin extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jButton6)
                         .addGap(29, 29, 29)
-                        .addComponent(jButton1)))
-                .addGap(38, 54, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(Add_Profe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CursoBTN)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,15 +199,6 @@ public class ControlesAdmin extends javax.swing.JFrame {
         ver.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void Mod_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mod_ProfeActionPerformed
-        // TODO add your handling code here:
-          dispose();
-        setVisible(false);
-
-       CapaGrafica.ModProfesor.ModProfesor  ver = new ModProfesor();
-        ver.setVisible(true);
-    }//GEN-LAST:event_Mod_ProfeActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
           dispose();
@@ -230,15 +208,6 @@ public class ControlesAdmin extends javax.swing.JFrame {
         ver.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void Del_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Del_ProfeActionPerformed
-        // TODO add your handling code here:
-          dispose();
-        setVisible(false);
-
-       CapaGrafica.EliminarProfesor.DeleteDocente  ver = new DeleteDocente ();
-        ver.setVisible(true);
-    }//GEN-LAST:event_Del_ProfeActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -247,6 +216,14 @@ public class ControlesAdmin extends javax.swing.JFrame {
        CapaGrafica.Licencias.ModLicenciaBuscar  ver = new ModLicenciaBuscar ();
         ver.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
+        dispose();
+        setVisible(false);
+
+       CapaGrafica.Curso.Curso  ver = new Curso ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_CursoBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,8 +252,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add_Profe;
-    private javax.swing.JButton Del_Profe;
-    private javax.swing.JButton Mod_Profe;
+    private javax.swing.JButton CursoBTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

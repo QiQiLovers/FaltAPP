@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" alignment="0" pref="782" max="32767" attributes="0"/>
+          <Component id="jPanel3" min="-2" pref="682" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -44,14 +44,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="IngresarApellido" alignment="0" pref="338" max="32767" attributes="0"/>
+                      <Component id="IngresarApellido" alignment="0" max="32767" attributes="0"/>
                       <Component id="IngresarNombre" alignment="0" max="32767" attributes="0"/>
                       <Component id="IngresarCI" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel3" max="32767" attributes="0"/>
-                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <Component id="jLabel1" pref="338" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -62,13 +62,16 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="CancelarBTN" min="-2" pref="124" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="AgregarDocenteBTN" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="CancelarBTN" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="AgregarCursoBTN" min="-2" pref="211" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="EliminarDocenteBTN" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="EliminarDocenteBTN" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" pref="197" max="-2" attributes="0"/>
@@ -104,9 +107,10 @@
                       <Component id="IngresarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CancelarBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AgregarDocenteBTN" alignment="3" max="32767" attributes="0"/>
+                      <Component id="AgregarCursoBTN" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="76" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +146,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Profesor"/>
+                <Property name="text" type="java.lang.String" value="Curso"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -153,7 +157,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cedula"/>
+            <Property name="text" type="java.lang.String" value="Cedula del Docente"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="IngresarCI">
@@ -175,7 +179,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Nombre"/>
+            <Property name="text" type="java.lang.String" value="Materia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="IngresarNombre">
@@ -194,7 +198,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Apellido"/>
+            <Property name="text" type="java.lang.String" value="Grupo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="IngresarApellido">
@@ -221,7 +225,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarBTNActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="AgregarDocenteBTN">
+        <Component class="javax.swing.JToggleButton" name="AgregarCursoBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="82" red="4d" type="rgb"/>
@@ -229,10 +233,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresar docente nuevo"/>
+            <Property name="text" type="java.lang.String" value="Ingresar curso nuevo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarDocenteBTNActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCursoBTNActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="EliminarDocenteBTN">
@@ -243,7 +247,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Eliminar Docente por cedula"/>
+            <Property name="text" type="java.lang.String" value="Eliminar Curso por CI del Docente"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarDocenteBTNActionPerformed"/>
@@ -273,12 +277,29 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Modificar Docente"/>
+            <Property name="text" type="java.lang.String" value="Modificar Curso"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModDocenteBTNActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="Si quieres a&#xf1;adir mas materias o grupos usa esta &#xa;sintaxis:&#xa;materia1,materia2,materia3&#xa;grupo1,grupo2,grupo3,grupo4  "/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
