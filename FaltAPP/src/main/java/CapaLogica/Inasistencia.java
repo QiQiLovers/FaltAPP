@@ -12,6 +12,15 @@ package CapaLogica;
 import java.util.Date;
 
 public class Inasistencia {
+    private int CI;
+
+    public int getCI() {
+        return CI;
+    }
+
+    public void setCI(int CI) {
+        this.CI = CI;
+    }
     private Date periodoInicio;
     private Date periodoFin;
     private String razon;

@@ -4,7 +4,13 @@
  */
 package CapaGrafica.Licencias;
 
+import java.util.Date;
 import CapaGrafica.ControlesAdmin;
+import CapaLogica.Inasistencia;
+import CapaLogica.fachada;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -45,7 +51,7 @@ public class Licencia extends javax.swing.JFrame {
         VolverBTN = new javax.swing.JButton();
         AniadirBTN = new javax.swing.JButton();
         FechaDeInico1 = new javax.swing.JLabel();
-        IngresoNombre = new javax.swing.JTextField();
+        IngresarCI = new javax.swing.JTextField();
         BuscarLicenciaBTN = new javax.swing.JButton();
         EliminarBTN = new javax.swing.JButton();
         ModificarBTN = new javax.swing.JButton();
@@ -133,9 +139,9 @@ public class Licencia extends javax.swing.JFrame {
         FechaDeInico1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FechaDeInico1.setText("Cedula");
 
-        IngresoNombre.addActionListener(new java.awt.event.ActionListener() {
+        IngresarCI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresoNombreActionPerformed(evt);
+                IngresarCIActionPerformed(evt);
             }
         });
 
@@ -192,7 +198,7 @@ public class Licencia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IngresoNombre)
+                            .addComponent(IngresarCI)
                             .addComponent(FechaDeInico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Ingreso_FechaInicio)
                             .addComponent(FechaDeFinalizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,7 +225,7 @@ public class Licencia extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(FechaDeInico1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IngresoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngresarCI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -268,7 +274,7 @@ public class Licencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Ingreso_FechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_FechaInicioActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_Ingreso_FechaInicioActionPerformed
 
     private void Ingreso_FechaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_FechaFinalActionPerformed
@@ -285,17 +291,68 @@ public class Licencia extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void AniadirBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AniadirBTNActionPerformed
-        // TODO add your handling code here:
-        ControlesAdmin con=new ControlesAdmin();
-        dispose();
-        setVisible(false);
-        con.setVisible(true);
-        
+if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || Ingreso_FechaFinal.getText().isEmpty() || Ingreso_Razon.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+        }else{
+  Inasistencia inas=new Inasistencia();  
+  try{
+             
+      String razon=Ingreso_Razon.getText();
+                inas.setRazon(razon);
+               
+                if(!Ingreso_Aclaracion.getText().isEmpty()){
+                    String aclaracion=Ingreso_Aclaracion.getText();
+                inas.setAclaracion(aclaracion);
+                }else{
+                    inas.setAclaracion("N/A");
+                }
+                try {
+                    SimpleDateFormat formato= new SimpleDateFormat("yyyy/MM/dd");
+                    
+                    try {
+                        Date inicio=formato.parse(Ingreso_FechaInicio.getText());
+                        inas.setPeriodoInicio(inicio);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+                    
+                    try {
+                    
+                    Date fin=formato.parse(Ingreso_FechaFinal.getText());
+                    inas.setPeriodoFin(fin);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de fin no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+                    
+                    
+
+                            
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                inas.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
+                fachada.IngresarInasistencia(inas);
+                JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
+
+                            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
+                
+                 }
+            
+        }
     }//GEN-LAST:event_AniadirBTNActionPerformed
 
-    private void IngresoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoNombreActionPerformed
+    private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IngresoNombreActionPerformed
+    }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void Ingreso_RazonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_RazonActionPerformed
         // TODO add your handling code here:
@@ -346,7 +403,7 @@ public class Licencia extends javax.swing.JFrame {
     private javax.swing.JLabel FechaDeFinalizacion;
     private javax.swing.JLabel FechaDeInico;
     private javax.swing.JLabel FechaDeInico1;
-    private javax.swing.JTextField IngresoNombre;
+    private javax.swing.JTextField IngresarCI;
     private javax.swing.JTextField Ingreso_Aclaracion;
     private javax.swing.JTextField Ingreso_FechaFinal;
     private javax.swing.JTextField Ingreso_FechaInicio;

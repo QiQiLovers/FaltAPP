@@ -11,7 +11,7 @@ package CapaLogica;
 public class curso {
     private int CIProfe;
     private String materia;
-    private String grupo;
+    private String id;
 
     public int getCIProfe() {
         return CIProfe;
@@ -29,12 +29,12 @@ public class curso {
         this.materia = materia;
     }
 
-    public String getGrupo() {
-        return grupo;
+    public String getId() {
+        return id;
     }
 
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
+    public void setId(String id) {
+        this.id = id;
     }
     
     

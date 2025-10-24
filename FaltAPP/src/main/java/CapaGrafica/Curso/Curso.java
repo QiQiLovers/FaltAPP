@@ -271,14 +271,14 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
                 String materia=IngresarMateria.getText();
                 curso.setMateria(materia);
                 String grupo=IngresarGrupo.getText();
-                curso.setGrupo(grupo);
+                curso.setId(grupo);
                 try{
                 int CI=Integer.parseInt(IngresarCI.getText());
                 curso.setCIProfe(CI);
                 }catch(NumberFormatException num){
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
-                fachada.IngresarProfe(curso);
+                fachada.IngresarCurso(curso);
                 JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
                             }catch(Exception ex){
