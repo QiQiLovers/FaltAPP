@@ -350,7 +350,31 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
     }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void ModCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModCursoBTNActionPerformed
-        // TODO add your handling code here:
+if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+        }else{
+  curso curso=new curso();  
+  try{
+                String materia=IngresarMateria.getText();
+                curso.setMateria(materia);
+                String grupo=IngresarGrupo.getText();
+                curso.setId(grupo);
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                curso.setCIProfe(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
+                fachada.ModificarCurso(curso);
+                JOptionPane.showMessageDialog(this, "Datos modificados correctamente");
+
+                            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los cambios");
+                
+                 }
+            
+        } 
     }//GEN-LAST:event_ModCursoBTNActionPerformed
 
     /**

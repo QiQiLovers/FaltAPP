@@ -331,8 +331,31 @@ if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || Ing
     }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void ModDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModDocenteBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ModDocenteBTNActionPerformed
+if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios para modificar");
+        }else{
+  Profe prof=new Profe();  
+  try{
+                String nombre=IngresarNombre.getText();
+                prof.setNombre(nombre);
+                String apellido=IngresarApellido.getText();
+                prof.setApellido(apellido);
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                prof.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
+                fachada.ModificarProfe(prof);
+                JOptionPane.showMessageDialog(this, "Datos modicicados correctamente");
+
+                            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los cambios");
+                
+                 }
+            
+        }    }//GEN-LAST:event_ModDocenteBTNActionPerformed
 
     /**
      * @param args the command line arguments

@@ -329,7 +329,7 @@ if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || 
                 }catch(NumberFormatException num){
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
-                fachada.IngresarInasistencia(inas);
+                fachada.IngresarLicencia(inas);
                 JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
                             }catch(Exception ex){
@@ -417,7 +417,54 @@ if(IngresarCI.getText().isEmpty()){
     }     }//GEN-LAST:event_EliminarBTNActionPerformed
 
     private void ModificarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBTNActionPerformed
-        // TODO add your handling code here:
+if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || Ingreso_FechaFinal.getText().isEmpty() || Ingreso_Razon.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
+        }else{
+  licencia inas=new licencia();  
+  try{
+             
+      String razon=Ingreso_Razon.getText();
+                inas.setRazon(razon);
+               
+                if(!Ingreso_Aclaracion.getText().isEmpty()){
+                    String aclaracion=Ingreso_Aclaracion.getText();
+                inas.setAclaracion(aclaracion);
+                }else{
+                    inas.setAclaracion("N/A");
+                }
+
+                    formato.setLenient(false);
+                    try {
+                        Date inicio=formato.parse(Ingreso_FechaInicio.getText());
+                        inas.setPeriodoInicio(inicio);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+                    
+                    try {
+                    
+                    Date fin=formato.parse(Ingreso_FechaFinal.getText());
+                    inas.setPeriodoFin(fin);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de fin no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+              
+                try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                inas.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+                }
+                fachada.ModificarLicencia(inas);
+                JOptionPane.showMessageDialog(this, "Datos modificados correctamente");
+
+                            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(this, "No se pudo guardar los cambios");
+                
+                 }
+            
+        }
     }//GEN-LAST:event_ModificarBTNActionPerformed
 
     /**
