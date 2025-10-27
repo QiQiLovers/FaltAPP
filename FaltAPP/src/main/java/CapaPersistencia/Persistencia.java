@@ -5,7 +5,7 @@
 package CapaPersistencia;
 
 import CapaExepcion.DBException;
-import CapaLogica.Inasistencia;
+import CapaLogica.licencia;
 import CapaLogica.Profe;
 import CapaLogica.curso;
 import java.sql.Connection;

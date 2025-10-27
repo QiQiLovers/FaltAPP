@@ -255,11 +255,56 @@ public class Curso extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
-        // TODO add your handling code here:
+    if(IngresarCI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder buscarlo");
+        }else{
+           curso BuscarCurso=new curso();
+            try {
+                int CI=Integer.parseInt(IngresarCI.getText());
+           BuscarCurso.setCIProfe(CI);
+           
+                   fachada.buscarCurso(CI);
+
+           
+            } catch (NumberFormatException e) {
+                 JOptionPane.showMessageDialog(this, "Pone un numero");
+            } catch (Exception ex) {
+                System.getLogger(Curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+            String Materia=String.valueOf(BuscarCurso.getMateria());
+            String ID=String.valueOf(BuscarCurso.getMateria());
+          IngresarMateria.setText(Materia);
+          IngresarGrupo.setText(ID);
+
+    }
+        
     }//GEN-LAST:event_BuscarDocenteBTN1ActionPerformed
 
     private void EliminarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCursoBTNActionPerformed
-        // TODO add your handling code here:
+
+if(IngresarCI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder eliminar el curso");
+        }else{
+     curso EliminarCurso= new curso();
+
+     try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                EliminarCurso.setCIProfe(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+
+    }
+     try {        
+        fachada.EliminarCurso(EliminarCurso);
+        
+         } catch (Exception ex) {
+            System.getLogger(Curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                            JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
+            
+        }
+                                                  JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
+ 
+    } 
     }//GEN-LAST:event_EliminarCursoBTNActionPerformed
 
     private void AgregarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCursoBTNActionPerformed
@@ -296,6 +341,8 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
         setVisible(false);
 
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
+        
     }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed

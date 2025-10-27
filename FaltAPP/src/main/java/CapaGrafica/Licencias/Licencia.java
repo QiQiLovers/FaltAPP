@@ -6,7 +6,7 @@ package CapaGrafica.Licencias;
 
 import java.util.Date;
 import CapaGrafica.ControlesAdmin;
-import CapaLogica.Inasistencia;
+import CapaLogica.licencia;
 import CapaLogica.fachada;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 public class Licencia extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Licencia.class.getName());
-
+                    SimpleDateFormat formato= new SimpleDateFormat("yyyy/MM/dd");
     /**
      * Creates new form AddLicencia
      */
@@ -294,7 +294,7 @@ public class Licencia extends javax.swing.JFrame {
 if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || Ingreso_FechaFinal.getText().isEmpty() || Ingreso_Razon.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
         }else{
-  Inasistencia inas=new Inasistencia();  
+  licencia inas=new licencia();  
   try{
              
       String razon=Ingreso_Razon.getText();
@@ -306,9 +306,8 @@ if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || 
                 }else{
                     inas.setAclaracion("N/A");
                 }
-                try {
-                    SimpleDateFormat formato= new SimpleDateFormat("yyyy/MM/dd");
-                    
+
+                    formato.setLenient(false);
                     try {
                         Date inicio=formato.parse(Ingreso_FechaInicio.getText());
                         inas.setPeriodoInicio(inicio);
@@ -323,15 +322,7 @@ if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || 
                     } catch (ParseException e) {
                         JOptionPane.showMessageDialog(null, "La fecha de fin no esta en el formato correcto. El formato es yyyy/mm/dd");
                     }
-                    
-                    
-
-                            
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                
+              
                 try{
                 int CI=Integer.parseInt(IngresarCI.getText());
                 inas.setCI(CI);
@@ -351,20 +342,79 @@ if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || 
     }//GEN-LAST:event_AniadirBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_IngresarCIActionPerformed
-
     private void Ingreso_RazonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingreso_RazonActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_Ingreso_RazonActionPerformed
 
+    
     private void BuscarLicenciaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarLicenciaBTNActionPerformed
-        // TODO add your handling code here:
+if(IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null, "Cedula y fecha de inicio no pueden estar vacios para buscar licencias");
+        }else{
+           licencia buscarLicencia=new licencia();
+            try {
+                int CI=Integer.parseInt(IngresarCI.getText());
+           buscarLicencia.setCI(CI);
+           formato.setLenient(false);
+           try {
+                        Date inicio=formato.parse(Ingreso_FechaInicio.getText());
+                        buscarLicencia.setPeriodoInicio(inicio);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+
+           
+                   fachada.BuscarLicencia(buscarLicencia);
+
+           
+            } catch (NumberFormatException e) {
+                 JOptionPane.showMessageDialog(this, "Pone un numero");
+            } catch (Exception ex) {
+                System.getLogger(Licencia.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+            Date fechaFin=buscarLicencia.getPeriodoFin();
+            String razon=buscarLicencia.getRazon();
+            String aclaracion=buscarLicencia.getAclaracion();
+            String transf=String.valueOf(fechaFin);
+                Ingreso_FechaFinal.setText(transf);
+                Ingreso_Razon.setText(razon);
+                Ingreso_Aclaracion.setText(aclaracion);
+                        
+}
     }//GEN-LAST:event_BuscarLicenciaBTNActionPerformed
 
     private void EliminarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EliminarBTNActionPerformed
+if(IngresarCI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder eliminarlo");
+        }else{
+     licencia EliminarLicencia= new licencia();
+
+     try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                EliminarLicencia.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+
+                 }
+                  try {
+                        Date inicio=formato.parse(Ingreso_FechaInicio.getText());
+                        EliminarLicencia.setPeriodoInicio(inicio);
+                    } catch (ParseException e) {
+                        JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
+                    }
+     
+     
+     try {        
+        fachada.EliminarLicencia(EliminarLicencia);
+        
+         } catch (Exception ex) {
+            System.getLogger(Licencia.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                            JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
+            
+        }
+                                                  JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
+ 
+    }     }//GEN-LAST:event_EliminarBTNActionPerformed
 
     private void ModificarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBTNActionPerformed
         // TODO add your handling code here:

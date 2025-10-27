@@ -240,11 +240,53 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTNActionPerformed
-        // TODO add your handling code here:
+if(IngresarCI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Cedula no puede estar vacia para buscar");
+        }else{
+           Profe BuscarProfe=new Profe();
+            try {
+                int CI=Integer.parseInt(IngresarCI.getText());
+           BuscarProfe.setCI(CI);
+
+                   fachada.BuscarProfe(CI);
+
+           
+            } catch (NumberFormatException e) {
+                 JOptionPane.showMessageDialog(this, "Pone un numero");
+            } catch (Exception ex) {
+                System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+            String Nombre=String.valueOf(BuscarProfe.getNombre());
+            String Apellido=String.valueOf(BuscarProfe.getNombre());
+          IngresarNombre.setText(Nombre);
+          IngresarApellido.setText(Apellido);
+            }
     }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
 
     private void EliminarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDocenteBTNActionPerformed
-        // TODO add your handling code here:
+        if(IngresarCI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder eliminarlo");
+        }else{
+     Profe EliminarProfe= new Profe();
+
+     try{
+                int CI=Integer.parseInt(IngresarCI.getText());
+                EliminarProfe.setCI(CI);
+                }catch(NumberFormatException num){
+                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+
+    }
+     try {        
+        fachada.EliminarProfe(EliminarProfe);
+        
+         } catch (Exception ex) {
+            System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                            JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
+            
+        }
+                                                  JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
+ 
+    } 
     }//GEN-LAST:event_EliminarDocenteBTNActionPerformed
 
     private void AgregarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDocenteBTNActionPerformed
@@ -281,6 +323,7 @@ if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || Ing
         setVisible(false);
 
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
+        volver.setVisible(true);
     }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed

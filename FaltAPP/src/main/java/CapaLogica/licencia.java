@@ -11,7 +11,7 @@ package CapaLogica;
 
 import java.util.Date;
 
-public class Inasistencia {
+public class licencia {
     private int CI;
 
     public int getCI() {
