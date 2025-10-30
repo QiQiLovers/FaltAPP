@@ -50,8 +50,6 @@ public class Curso extends javax.swing.JFrame {
         BuscarDocenteBTN1 = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         ModCursoBTN = new javax.swing.JToggleButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
 
@@ -101,7 +99,7 @@ public class Curso extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Grupo");
+        jLabel4.setText("Grupo / ID");
 
         IngresarGrupo.setBackground(new java.awt.Color(204, 204, 204));
         IngresarGrupo.setForeground(new java.awt.Color(0, 0, 0));
@@ -151,16 +149,10 @@ public class Curso extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Si quieres añadir mas materias o grupos usa esta \nsintaxis:\nmateria1,materia2,materia3\ngrupo1,grupo2,grupo3,grupo4  ");
-        jScrollPane1.setViewportView(jTextArea1);
-
         jTextArea2.setColumns(20);
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("Para buscar y eliminar debes poner la cedula del\ndocente\nPara modificar es recomendado primero buscar y \nluego modificar");
+        jTextArea2.setText("Para buscar y eliminar debes poner la Materia y el Grupo del curso\nPara modificar es recomendado primero buscar y \nluego modificar");
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -194,10 +186,6 @@ public class Curso extends javax.swing.JFrame {
                             .addComponent(EliminarCursoBTN)
                             .addComponent(ModCursoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,9 +219,7 @@ public class Curso extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(88, 88, 88))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,15 +241,17 @@ public class Curso extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
-    if(IngresarCI.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder buscarlo");
+    if(IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "La materia y el ID del grupo son necesarias para poder buscar");
         }else{
            curso BuscarCurso=new curso();
             try {
-                int CI=Integer.parseInt(IngresarCI.getText());
-           BuscarCurso.setCIProfe(CI);
+                String Grupo=IngresarGrupo.getText();
+                 String Materia=IngresarMateria.getText();
+           BuscarCurso.setId(Grupo);
+           BuscarCurso.setMateria(Materia);
            
-                   fachada.buscarCurso(CI);
+                   fachada.buscarCurso(BuscarCurso);
 
            
             } catch (NumberFormatException e) {
@@ -418,9 +406,7 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
