@@ -77,8 +77,7 @@ public class InicioDeApp extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -146,7 +145,7 @@ public class InicioDeApp extends javax.swing.JFrame {
     private void UsuarioIR_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioIR_BotonActionPerformed
        dispose();
         setVisible(false);
-        PantallaNoAdmin UsuarioIR = new PantallaNoAdmin();
+        Horarios UsuarioIR = new Horarios();
         UsuarioIR.setVisible(true);    }//GEN-LAST:event_UsuarioIR_BotonActionPerformed
 
     private void AdminIR_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminIR_BotonActionPerformed
