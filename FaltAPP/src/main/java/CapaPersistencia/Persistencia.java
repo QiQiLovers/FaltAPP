@@ -140,9 +140,10 @@ public class Persistencia {
     public Profe BuscarProfe(Profe BusCI) throws Exception, SQLException {
         Profe pro = new Profe();
         try {
+            
             Connection con = cone.getConnection();
 
-            ps = (PreparedStatement) con.prepareStatement(BUSCAR_PROFES);
+            ps =con.prepareStatement(BUSCAR_PROFES);
             ps.setInt(1, BusCI.getCI());
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -151,19 +152,21 @@ public class Persistencia {
 
                 pro.setNombre(nombre);
                 pro.setApellido(Apellido);
-                pro.setCI(BusCI.getCI());
-
+                
+              
             } else {
                 throw new DBException("No se obtuvo el profesor");
             }
 
             JOptionPane.showMessageDialog(null, "Profe encontrado");
             con.close();
+            
 
         } catch (Exception e) {
             throw new Exception("Error a la hora de buscar profe " + e.getMessage());
         }
         return pro;
+        
     }
 
     public Profe EliminarProfe(Profe ci) throws Exception, SQLException {

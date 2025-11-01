@@ -14,16 +14,16 @@ import java.sql.Date;
 public class fachada {
 
     // Profes
-    public static void IngresarProfe(Profe prof) throws Exception {
+    public static void IngresarProfe(Profe ci) throws Exception {
 
         Persistencia Ingre = new Persistencia();
-        Ingre.IngresarProfe(prof);
+        Ingre.IngresarProfe(ci);
 
     }
 
     public static Profe BuscarProfe(Profe CI) throws Exception {
         Persistencia per = new Persistencia();
-        CI = per.BuscarProfe(CI);
+        CI= per.BuscarProfe(CI);
         return CI;
 
     }
@@ -86,18 +86,18 @@ public class fachada {
     }
 
     public static curso EliminarCurso(String id, int Ci) throws Exception {
-        curso pe=null;
+        curso pe = null;
         pe.setCIProfe(Ci);
         pe.setId(id);
         Persistencia per = new Persistencia();
-        pe=per.EliminarCurso(id, Ci);
+        pe = per.EliminarCurso(id, Ci);
         return pe;
     }
 
     public static curso ModificarCurso(String Materia, String Id, int ci) throws Exception {
-        Persistencia modCur=new Persistencia();
-        curso cur=new curso();
-        cur= modCur.ModificarCurso(Materia, Id, ci);
+        Persistencia modCur = new Persistencia();
+        curso cur = new curso();
+        cur = modCur.ModificarCurso(Materia, Id, ci);
         return cur;
     }
 

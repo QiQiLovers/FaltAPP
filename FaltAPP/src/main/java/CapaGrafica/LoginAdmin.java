@@ -161,6 +161,12 @@ public class LoginAdmin extends javax.swing.JFrame {
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
         // TODO add your handling code here:
         
+        
+        
+    }//GEN-LAST:event_LoginBTNActionPerformed
+
+    private void IngresarSesion_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarSesion_BotonActionPerformed
+        // TODO add your handling code here:
         if(UsuarioTXT.getText().isEmpty() && ContraseniaTXT.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Los campos de Usuario y contraseña no pueden estar vacios");
         
@@ -187,11 +193,6 @@ public class LoginAdmin extends javax.swing.JFrame {
             
         
         }
-        
-    }//GEN-LAST:event_LoginBTNActionPerformed
-
-    private void IngresarSesion_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarSesion_BotonActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_IngresarSesion_BotonActionPerformed
 
     /**

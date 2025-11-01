@@ -245,16 +245,20 @@ public class Profesor extends javax.swing.JFrame {
                 int CI = Integer.parseInt(IngresarCI.getText());
                 BuscarProfe.setCI(CI);
 
-                //fachada.BuscarProfe(CI);
+ 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Pone un numero");
+            }
+            try {
+                           Profe Bus=fachada.BuscarProfe(BuscarProfe);
+                           String Nombre = Bus.getNombre();
+            String Apellido = Bus.getApellido();
+            IngresarNombre.setText(Nombre);
+            IngresarApellido.setText(Apellido);
             } catch (Exception ex) {
                 System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-            String Nombre = String.valueOf(BuscarProfe.getNombre());
-            String Apellido = String.valueOf(BuscarProfe.getNombre());
-            IngresarNombre.setText(Nombre);
-            IngresarApellido.setText(Apellido);
+
         }
     }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
 

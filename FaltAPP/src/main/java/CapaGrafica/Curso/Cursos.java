@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Rodri
  */
 public class Cursos extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(curso.class.getName());
 
     /**
@@ -241,96 +241,95 @@ public class Cursos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
-    if(IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+        if (IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "La materia y el ID del grupo son necesarias para poder buscar");
-        }else{
-           curso BuscarCurso=new curso();
+        } else {
+            curso BuscarCurso = new curso();
             try {
-                String Grupo=IngresarGrupo.getText();
-                 String Materia=IngresarMateria.getText();
-           BuscarCurso.setId(Grupo);
-           BuscarCurso.setMateria(Materia);
-           
-                   fachada.BuscarCurso(BuscarCurso);
+                String Grupo = IngresarGrupo.getText();
+                String Materia = IngresarMateria.getText();
+                BuscarCurso.setId(Grupo);
+                BuscarCurso.setMateria(Materia);
 
-           
+                fachada.BuscarCurso(BuscarCurso);
+
             } catch (NumberFormatException e) {
-                 JOptionPane.showMessageDialog(this, "Pone un numero");
+                JOptionPane.showMessageDialog(this, "Pone un numero");
             } catch (Exception ex) {
                 System.getLogger(curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-            String Materia=String.valueOf(BuscarCurso.getMateria());
-            String ID=String.valueOf(BuscarCurso.getId());
-          IngresarMateria.setText(Materia);
-          IngresarGrupo.setText(ID);
+            String Materia = String.valueOf(BuscarCurso.getMateria());
+            String ID = String.valueOf(BuscarCurso.getId());
+            IngresarMateria.setText(Materia);
+            IngresarGrupo.setText(ID);
 
-    }
-        
+        }
+
     }//GEN-LAST:event_BuscarDocenteBTN1ActionPerformed
 
     private void EliminarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCursoBTNActionPerformed
 
-if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "La cedula eh el id es necesario para eliminar el curso");
-        }else{
-     curso EliminarCurso= new curso();
+        } else {
+            curso EliminarCurso = new curso();
 
-     try{
-                int CI=Integer.parseInt(IngresarCI.getText());
+            try {
+                int CI = Integer.parseInt(IngresarCI.getText());
                 EliminarCurso.setCIProfe(CI);
-                }catch(NumberFormatException num){
-                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+            } catch (NumberFormatException num) {
+                JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
 
-    }
-     try{
-     String Id=IngresarGrupo.getText();
+            }
+            try {
+                String Id = IngresarGrupo.getText();
                 EliminarCurso.setId(Id);
-                }catch(NumberFormatException num){
-                    JOptionPane.showMessageDialog(this, "Pon la id del grupo");
-     }
-     try {        
-        int ci=EliminarCurso.getCIProfe();
-        String id=EliminarCurso.getId();
-         
-         fachada.EliminarCurso(id,ci);
-        
-         } catch (Exception ex) {
-            System.getLogger(curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                            JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
-            
+            } catch (NumberFormatException num) {
+                JOptionPane.showMessageDialog(this, "Pon la id del grupo");
+            }
+            try {
+                int ci = EliminarCurso.getCIProfe();
+                String id = EliminarCurso.getId();
+
+                fachada.EliminarCurso(id, ci);
+
+            } catch (Exception ex) {
+                System.getLogger(curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
+
+            }
+            JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
+
         }
-                                                  JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
- 
-    } 
     }//GEN-LAST:event_EliminarCursoBTNActionPerformed
 
     private void AgregarCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCursoBTNActionPerformed
-if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
-        }else{
-  curso curso=new curso();  
-  try{
-                String materia=IngresarMateria.getText();
+        } else {
+            curso curso = new curso();
+            try {
+                String materia = IngresarMateria.getText();
                 curso.setMateria(materia);
-                String grupo=IngresarGrupo.getText();
+                String grupo = IngresarGrupo.getText();
                 curso.setId(grupo);
-                try{
-                int CI=Integer.parseInt(IngresarCI.getText());
-                curso.setCIProfe(CI);
-                }catch(NumberFormatException num){
+                try {
+                    int CI = Integer.parseInt(IngresarCI.getText());
+                    curso.setCIProfe(CI);
+                } catch (NumberFormatException num) {
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
                 fachada.IngresarCurso(curso);
                 JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
-                            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
-                
-                 }
-            
-        }            
-        
+
+            }
+
+        }
+
     }//GEN-LAST:event_AgregarCursoBTNActionPerformed
 
     private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
@@ -339,7 +338,7 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
 
         CapaGrafica.ControlesAdmin volver = new ControlesAdmin();
         volver.setVisible(true);
-        
+
     }//GEN-LAST:event_VolverBTNActionPerformed
 
     private void IngresarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCIActionPerformed
@@ -347,35 +346,35 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
     }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void ModCursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModCursoBTNActionPerformed
-if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
-        }else{
-  curso curso=new curso();  
-  try{
-                String materia=IngresarMateria.getText();
+        } else {
+            curso curso = new curso();
+            try {
+                String materia = IngresarMateria.getText();
                 curso.setMateria(materia);
-                String grupo=IngresarGrupo.getText();
+                String grupo = IngresarGrupo.getText();
                 curso.setId(grupo);
-                try{
-                int CI=Integer.parseInt(IngresarCI.getText());
-                curso.setCIProfe(CI);
-                }catch(NumberFormatException num){
+                try {
+                    int CI = Integer.parseInt(IngresarCI.getText());
+                    curso.setCIProfe(CI);
+                } catch (NumberFormatException num) {
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
-                String Materia=curso.getMateria();
-                String Id=curso.getId();
-                int ci=curso.getCIProfe();
-                
-                fachada.ModificarCurso(Materia,Id,ci);
+                String Materia = curso.getMateria();
+                String Id = curso.getId();
+                int ci = curso.getCIProfe();
+
+                fachada.ModificarCurso(Materia, Id, ci);
                 JOptionPane.showMessageDialog(this, "Datos modificados correctamente");
 
-                            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 JOptionPane.showMessageDialog(this, "No se pudo guardar los cambios");
-                
-                 }
-            
-        } 
+
+            }
+
+        }
     }//GEN-LAST:event_ModCursoBTNActionPerformed
 
     /**
