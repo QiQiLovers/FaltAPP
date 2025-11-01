@@ -7,8 +7,8 @@ package CapaGrafica;
 import CapaGrafica.Profesor.Profesor;
 
 
-import CapaGrafica.Licencias.Licencia;
-import CapaGrafica.Curso.Curso;
+import CapaGrafica.Licencias.Licencias;
+import CapaGrafica.Curso.Cursos;
 
 /**
  
@@ -42,6 +42,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         CursoBTN = new javax.swing.JButton();
+        CrearUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +115,15 @@ public class ControlesAdmin extends javax.swing.JFrame {
             }
         });
 
+        CrearUsuario.setBackground(new java.awt.Color(77, 130, 244));
+        CrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        CrearUsuario.setText("Crear usuario nuevo");
+        CrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,10 +132,11 @@ public class ControlesAdmin extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Add_Profe)
-                    .addComponent(CursoBTN))
+                    .addComponent(CursoBTN)
+                    .addComponent(CrearUsuario))
                 .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -152,7 +163,9 @@ public class ControlesAdmin extends javax.swing.JFrame {
                         .addGap(90, 90, 90)
                         .addComponent(Add_Profe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CursoBTN)))
+                        .addComponent(CursoBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CrearUsuario)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -175,13 +188,13 @@ public class ControlesAdmin extends javax.swing.JFrame {
           dispose();
         setVisible(false);
 
-       CapaGrafica.Licencias.Licencia  ver = new Licencia();
+       CapaGrafica.Licencias.Licencias  ver = new Licencias();
         ver.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void Add_ProfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_ProfeActionPerformed
         // TODO add your handling code here:
-      dispose();
+        dispose();
         setVisible(false);
 
         CapaGrafica.Profesor.Profesor  ver = new Profesor();
@@ -200,9 +213,13 @@ public class ControlesAdmin extends javax.swing.JFrame {
         dispose();
         setVisible(false);
 
-       CapaGrafica.Curso.Curso  ver = new Curso ();
+       CapaGrafica.Curso.Cursos  ver = new Cursos ();
         ver.setVisible(true);
     }//GEN-LAST:event_CursoBTNActionPerformed
+
+    private void CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioActionPerformed
+        
+    }//GEN-LAST:event_CrearUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +248,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add_Profe;
+    private javax.swing.JButton CrearUsuario;
     private javax.swing.JButton CursoBTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;

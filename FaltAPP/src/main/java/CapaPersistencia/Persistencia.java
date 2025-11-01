@@ -6,102 +6,100 @@ package CapaPersistencia;
 
 import CapaExepcion.DBException;
 import CapaLogica.Hashutil;
-import CapaLogica.licencia;
+import CapaLogica.Licencia;
 import CapaLogica.Profe;
-import CapaLogica.curso;
+import CapaLogica.Curso;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
 /**
  *
- * @author tomas
+ * @author Santi
  */
 public class Persistencia {
+// Todo lo que necesita para andar de manera correcta
 
-    
-    public class CrearUsuario{
-    public Conexion cone=new Conexion();
+    public Conexion cone = new Conexion();
     public PreparedStatement ps;
     public ResultSet rs;
-    private static final String CrearUsuario="INSERT INTO FaltAPP.Administrador(Usuario,Contrasenia) VALUES(?,?)";
-    private static final String IniciarSesion = "SELECT Contrasenia FROM FaltAPP.Administrador WHERE Usuario=?";
-    private String user="Admin"; //El primer usuario creado es User=Admin y contra=1234 ESTO MISMO NO SE PUEDE REPETIR, PORQUE EN LA DB SOLO SE PERMITE UN USUSRIO UNICO
-    private String contra="123";
 
-// Profes
+// Usuario
+    private static final String CrearUsuario
+            = "INSERT INTO FaltAPP.Administrador(Usuario,Contrasenia) VALUES(?,?)";
 
-private static final String BUSCAR_PROFES = 
-    "SELECT * FROM FaltAPP.Profesor WHERE CI = ?;";
+    private static final String IniciarSesion
+            = "SELECT Contrasenia FROM FaltAPP.Administrador WHERE Usuario=?";
 
-private static final String ANADIR_PROFES = 
-    "INSERT INTO FaltAPP.Profesor (CI, Nombre, Apellido) VALUES (?, ?, ?);";
+    // Profes
+    private static final String BUSCAR_PROFES
+            = "SELECT * FROM FaltAPP.Profesor WHERE CI = ?;";
 
-private static final String ELIMINAR_PROFES = 
-    "DELETE FROM FaltAPP.Profesor WHERE CI = ?;";
+    private static final String ANADIR_PROFES
+            = "INSERT INTO FaltAPP.Profesor (CI, Nombre, Apellido) VALUES (?, ?, ?);";
 
-private static final String MODIFICAR_PROFES = 
-    "UPDATE FaltAPP.Profesor SET Nombre = ?, Apellido = ? WHERE CI = ?;";
+    private static final String ELIMINAR_PROFES
+            = "DELETE FROM FaltAPP.Profesor WHERE CI = ?;";
 
+    private static final String MODIFICAR_PROFES
+            = "UPDATE FaltAPP.Profesor SET Nombre = ?, Apellido = ? WHERE CI = ?;";
 
 // Licencias
+    private static final String BUSCAR_LICENCIAS
+            = "SELECT * FROM FaltAPP.Inasistencia WHERE CiProfe = ? AND Fecha_inicio = ?;";
 
-private static final String BUSCAR_LICENCIAS = 
-    "SELECT * FROM FaltAPP.Inasistencia WHERE CiProfe = ? AND Fecha_inicio = ?;";
+    private static final String ELIMINAR_LICENCIAS
+            = "DELETE FROM FaltAPP.Inasistencia WHERE CiProfe = ? AND Fecha_inicio = ?;";
 
-private static final String ELIMINAR_LICENCIAS = 
-    "DELETE FROM FaltAPP.Inasistencia WHERE CiProfe = ? AND Fecha_inicio = ?;";
+    private static final String ANADIR_LICENCIAS
+            = "INSERT INTO FaltAPP.Inasistencia (CiProfe, Observacion, Fecha_inicio, Fecha_fin, Razon) VALUES (?, ?, ?, ?, ?);";
 
-private static final String ANADIR_LICENCIAS = 
-    "INSERT INTO FaltAPP.Inasistencia (CiProfe, Observacion, Fecha_inicio, Fecha_fin, Razon) VALUES (?, ?, ?, ?, ?);";
-
-private static final String MODIFICAR_LICENCIAS = 
-    "UPDATE FaltAPP.Inasistencia SET Observacion = ?, Fecha_fin = ?, Razon = ? WHERE CiProfe = ? AND Fecha_inicio = ?;";
-
+    private static final String MODIFICAR_LICENCIAS
+            = "UPDATE FaltAPP.Inasistencia SET Observacion = ?, Fecha_fin = ?, Razon = ? WHERE CiProfe = ? AND Fecha_inicio = ?;";
 
 // Cursos
-private static final String ANADIR_CURSOS = 
-    "INSERT INTO FaltAPP.Curso (Ci_Profesor, Materia, Grupo) VALUES (?, ?, ?);";
+    private static final String ANADIR_CURSOS
+            = "INSERT INTO FaltAPP.Curso (Ci_Profesor, ID, Grupo) VALUES (?, ?, ?);";
 
-private static final String MODIFICAR_CURSOS = 
-    "UPDATE FaltAPP.Curso SET Materia = ?, Grupo = ? WHERE ID = ? AND Ci_Profesor = ?;";
+    private static final String MODIFICAR_CURSOS
+            = "UPDATE FaltAPP.Curso SET Materia = ? WHERE ID = ? AND Ci_Profesor = ?;";
 
-private static final String BUSCAR_CURSOS = 
-    "SELECT * FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
+    private static final String BUSCAR_CURSOS
+            = "SELECT * FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
 
-private static final String ELIMINAR_CURSOS = 
-    "DELETE FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
+    private static final String ELIMINAR_CURSOS
+            = "DELETE FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
 
-    
-    
-    public void CrearUsu()throws Exception,SQLException{
-        
-        String passhasheada=Hashutil.encriptarPass(contra);
-        
-        try{
-            Connection con=cone.getConnection();
-            
-            ps=(PreparedStatement)con.prepareStatement(CrearUsuario);
+    //COSAS DE USU INI
+    public boolean CrearUsu(String user, String contra) throws Exception, SQLException {
+
+        String passhasheada = Hashutil.encriptarPass(contra);
+
+        try {
+            Connection con = cone.getConnection();
+
+            ps = (PreparedStatement) con.prepareStatement(CrearUsuario);
             ps.setString(1, user);
             ps.setString(2, passhasheada);
             ps.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Usuario Creado con exito");
             con.close();
-        
-        }catch (Exception e) {
-            throw new Exception("Error a la hora de crear usuario "+e.getMessage());
+            return true;
+
+        } catch (Exception e) {
+            throw new Exception("Error a la hora de crear usuario " + e.getMessage());
         }
 
-
     }
-    
+
     public boolean loginUsu(String username, String password) throws SQLException {
-    
-        try (            
-            Connection con=Conexion.getConnection();
-            PreparedStatement ps = con.prepareStatement(IniciarSesion)) {
+
+        try (
+                Connection con = Conexion.getConnection(); PreparedStatement ps = con.prepareStatement(IniciarSesion)) {
 
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
@@ -113,41 +111,269 @@ private static final String ELIMINAR_CURSOS =
 
             con.close();
         } catch (SQLException e) {
-            throw new SQLException("Error a la hora de iniciar sesion "+e.getMessage());
+            throw new SQLException("Error a la hora de iniciar sesion " + e.getMessage());
 
         }
         return false;
     }
 
-    public void BuscarProfe(Profe BusCI) throws Exception{
-    try{
-            Connection con=cone.getConnection();
-            
-            ps=(PreparedStatement)con.prepareStatement(BUSCAR_PROFES);
-            ps.setInt(1, BusCI.getCI());
-            ps.executeUpdate();
-            rs=ps.executeQuery();
-            if (rs.next()) {
-                int Ci=rs.getInt("CI");
-                String nombre= rs.getString("Nombre"); 
-                String Apellido= rs.getString("Apellido");
+    //COSAS DE USU FIN
+    
+    // COSAS DE PROFE INI
+    public void IngresarProfe(Profe pro) throws Exception, SQLException {
 
-            }else{
-                throw new DBException("No se obtuvo el profesor");                
+        try (Connection con = cone.getConnection()) {
+
+            int resultado = 0;
+            ps =con.prepareStatement(ANADIR_PROFES);
+            ps.setInt(1, pro.getCI());
+            ps.setString(2, pro.getNombre());
+            ps.setString(3, pro.getApellido());
+            resultado = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new Exception("Error a la hora de añadir profes" + e.getMessage());
+        }
+
+    }
+
+    public Profe BuscarProfe(Profe BusCI) throws Exception, SQLException {
+        Profe pro = new Profe();
+        try {
+            Connection con = cone.getConnection();
+
+            ps = (PreparedStatement) con.prepareStatement(BUSCAR_PROFES);
+            ps.setInt(1, BusCI.getCI());
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String nombre = rs.getString("Nombre");
+                String Apellido = rs.getString("Apellido");
+
+                pro.setNombre(nombre);
+                pro.setApellido(Apellido);
+                pro.setCI(BusCI.getCI());
+
+            } else {
+                throw new DBException("No se obtuvo el profesor");
             }
-            
+
             JOptionPane.showMessageDialog(null, "Profe encontrado");
             con.close();
+
+        } catch (Exception e) {
+            throw new Exception("Error a la hora de buscar profe " + e.getMessage());
+        }
+        return pro;
+    }
+
+    public Profe EliminarProfe(Profe ci) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            int help = ci.getCI();
+            ps = (PreparedStatement) con.prepareStatement(ELIMINAR_PROFES);
+            ps.setInt(1, help);
+            int filasEliminadas = ps.executeUpdate();
+
+            if (filasEliminadas > 0) {
+                JOptionPane.showMessageDialog(null, "Profesor eliminado con exito");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun profesor con ese ci: " + ci);
+            }
+
+        } catch (SQLException e) {
+            throw new Exception("Error a la hora de borrar profesor " + e.getMessage());
+        }
+        return null;
+
+    }
+
+    public Profe ModificarProfe(int Ci, String nombre, String apellido) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            ps = con.prepareStatement(MODIFICAR_PROFES);
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setInt(3, Ci);
+            int filasActu = ps.executeUpdate();
+
+            if (filasActu > 0) {
+                JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun profe con la ci:" + Ci);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el profesor: " + e.getMessage());
+        }
+        return null;
+    }
+    
+
+    // COSAS DE PROFE FIN
+    
+    // COSAS DE LICENCIA INI
+    public void IngresarLicencias(Licencia lis) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            int resultado = 0;
+            ps = (PreparedStatement) con.prepareStatement(ANADIR_LICENCIAS);
+            ps.setInt(1, lis.getCI());
+            ps.setString(2, lis.getObservacion());
+            ps.setDate(3, (Date) lis.getPeriodoFin());
+            ps.setDate(4, (Date) lis.getPeriodoInicio());
+            ps.setString(5, lis.getRazon());
+            resultado = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new Exception("Error a la hora de añadir licencias " + e.getMessage());
+        }
+
+    }
+
+    public Licencia BuscarLicencia(Licencia bus) throws Exception, SQLException {
+
         
-        }catch (Exception e) {
-            throw new Exception("Error a la hora de buscar profe "+e.getMessage());
+
+        try (Connection con = cone.getConnection()) {
+
+            ps = (PreparedStatement) con.prepareStatement(BUSCAR_LICENCIAS);
+            ps.setInt(1, bus.getCI());
+            ps.setDate(2, (Date) bus.getPeriodoInicio());
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    int ci = rs.getInt("CiProfe");
+                    String observacion = rs.getString("Observacion");
+                    Date fechaFin = rs.getDate("Fecha_fin");
+                    Date fechaInicio = rs.getDate("Fecha_inicio");
+                    String Razon = rs.getString("Razon");
+
+                    bus.setCI(ci);
+                    bus.setObservacion(observacion);
+                    bus.setPeriodoFin(fechaFin);
+                    bus.setPeriodoInicio(fechaInicio);
+                    bus.setRazon(Razon);
+                }
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al buscar la inasistencia: " + e.getMessage());
+        }
+
+        return bus;
+    }
+
+    public Licencia EliminarLicencia(int ci, Date fechaIni) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            ps = (PreparedStatement) con.prepareStatement(ELIMINAR_LICENCIAS);
+            ps.setInt(1, ci);
+            ps.setDate(2, fechaIni);
+            int filasEliminadas = ps.executeUpdate();
+
+            if (filasEliminadas > 0) {
+                JOptionPane.showMessageDialog(null, "Licencia eliminada");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ninguna licencia con ese ci: " + ci + "\nNi con esa fecha de inicio: " + fechaIni);
+            }
+
+        } catch (SQLException e) {
+            throw new Exception("Error a la hora de borrar licencia " + e.getMessage());
+        }
+        return null;
+
+    }
+    
+    public Licencia ModificarLicencias(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception, SQLException{
+    
+        try(Connection con=cone.getConnection()){
+        
+        ps=con.prepareStatement(MODIFICAR_LICENCIAS);
+        ps.setString(1,obser);
+        ps.setDate(2, (Date) fechaFin); 
+        ps.setString(3,Razon);
+        ps.setInt(4,Ciprofe);
+        ps.setDate(5, (Date) fechaIni);
+        int filasActu = ps.executeUpdate();
+        if (filasActu > 0) {
+                JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ninguna licencia con el ci:" + Ciprofe);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el profesor: " + e.getMessage());
+        }
+        return null;
+        
+    
+    
+    }
+    // COSAS DE LICENCIA FIN
+    
+    //COSAS DE CURSOS INI
+    public void IngresarCurso(Curso cur) throws Exception, SQLException{
+    
+        try (Connection con = cone.getConnection()){
+        int resultado=0;
+        ps=(PreparedStatement) con.prepareStatement(ANADIR_CURSOS);
+        ps.setString(1, cur.getId());
+        ps.setInt(2, cur.getCIProfe());
+        ps.setString(3, cur.getMateria());
+        resultado=ps.executeUpdate();
+        
+        
+        }catch (SQLException e) {
+            throw new Exception("Error a la hora de añadir el curso" + e.getMessage());
         }
     
+    }    
+    
+    public Curso BuscarCurso(Curso cur) throws Exception, SQLException{
+    
+        try(Connection con = cone.getConnection()){
+            
+           ps = (PreparedStatement) con.prepareStatement(BUSCAR_CURSOS);
+            
+        }
+        return cur;
     }
     
-    
-    
-    
-    
+    public Curso EliminarCurso(String id, int Ci) throws Exception, SQLException{
+        
+        try(Connection con=cone.getConnection()){
+            ps=con.prepareStatement(ELIMINAR_CURSOS);
+            ps.setString(1, id);
+            ps.setInt(2,Ci);
+            int filasEliminadas=0;
+            if (filasEliminadas > 0) {
+                JOptionPane.showMessageDialog(null, "Curso eliminado");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con ese ci: " + Ci + "\nNi con ese id"+id);
+            }
+        }
+        return null;
     }
+    
+    public Curso ModificarCurso(String Materia, String Id, int ci) throws Exception,SQLException{
+        
+        try (Connection con = cone.getConnection()){
+        ps=con.prepareStatement(MODIFICAR_CURSOS);
+        ps.setString(1, Materia);
+        ps.setString(2, Id);
+        ps.setInt(3, ci);
+        int filasActu = ps.executeUpdate();
+
+        if (filasActu > 0) {
+                JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con el id: "+Id);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al modificar curso: " + e.getMessage());
+        }
+        return null;
+        
+        
+        
+    }
+    
+    //COSAS DE CURSO FIN
 }

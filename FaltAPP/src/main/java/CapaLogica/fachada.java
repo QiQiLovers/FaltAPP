@@ -4,58 +4,101 @@
  */
 package CapaLogica;
 
+import CapaPersistencia.Persistencia;
+import java.sql.Date;
+
 /**
  *
- * @author tomas
+ * @author Tomas
  */
 public class fachada {
 
-    public static void IngresarProfe(Profe prof) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Profes
+    public static void IngresarProfe(Profe prof) throws Exception {
+
+        Persistencia Ingre = new Persistencia();
+        Ingre.IngresarProfe(prof);
+
     }
 
-    public static void IngresarCurso(curso Cursos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Profe BuscarProfe(Profe CI) throws Exception {
+        Persistencia per = new Persistencia();
+        CI = per.BuscarProfe(CI);
+        return CI;
+
     }
 
-    public static void IngresarLicencia(licencia inas) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Profe EliminarProfe(Profe Ci) throws Exception {
+        Persistencia borrarPro = new Persistencia();
+        Ci = borrarPro.EliminarProfe(Ci);
+        return Ci;
+
     }
 
-    public static void BuscarProfe(int CI) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Profe ModificarProfe(int Ci, String Nombre, String apellido) throws Exception {
+        Persistencia modProf = new Persistencia();
+        Profe prof = new Profe();
+        prof = modProf.ModificarProfe(Ci, Nombre, apellido);
+        return prof;
+
     }
 
-    public static void buscarCurso(curso BuscarCurso) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Licencias
+    public static void IngresarLicencia(Licencia inas) throws Exception {
+        Persistencia Ingre = new Persistencia();
+        Ingre.IngresarLicencias(inas);
+
     }
 
-    public static void BuscarLicencia(licencia buscarLicencia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Licencia BuscarLicencia(Licencia buscarLicencia) throws Exception {
+        Persistencia per = new Persistencia();
+        buscarLicencia = per.BuscarLicencia(buscarLicencia);
+        return buscarLicencia;
     }
 
-    public static void EliminarCurso(curso EliminarCurso) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Licencia EliminarLicencia(int Ci, Date fechaIni) throws Exception {
+        Licencia good = null;
+        good.setCI(Ci);
+        good.setPeriodoInicio(fechaIni);
+        Persistencia per = new Persistencia();
+        good = per.EliminarLicencia(Ci, fechaIni);
+        return good;
     }
 
-    public static void EliminarProfe(Profe EliminarProfe) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Licencia ModificarLicencia(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception {
+        Persistencia modLice = new Persistencia();
+        Licencia Lice = new Licencia();
+        Lice = modLice.ModificarLicencias(Ciprofe, obser, fechaFin, fechaIni, Razon);
+        return Lice;
     }
 
-    public static void EliminarLicencia(licencia Eliminarlicencia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Cursos
+    public static void IngresarCurso(Curso Curs) throws Exception {
+        Persistencia Ingre = new Persistencia();
+        Ingre.IngresarCurso(Curs);
+
     }
 
-    public static void ModificarProfe(Profe prof) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Curso BuscarCurso(Curso BuscarCurso) throws Exception {
+        Persistencia per = new Persistencia();
+        BuscarCurso = per.BuscarCurso(BuscarCurso);
+        return BuscarCurso;
     }
 
-    public static void ModificarLicencia(licencia inas) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Curso EliminarCurso(String id, int Ci) throws Exception {
+        Curso pe=null;
+        pe.setCIProfe(Ci);
+        pe.setId(id);
+        Persistencia per = new Persistencia();
+        pe=per.EliminarCurso(id, Ci);
+        return pe;
     }
 
-    public static void ModificarCurso(curso curso) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static Curso ModificarCurso(String Materia, String Id, int ci) throws Exception {
+        Persistencia modCur=new Persistencia();
+        Curso cur=new Curso();
+        cur= modCur.ModificarCurso(Materia, Id, ci);
+        return cur;
     }
-    
+
 }

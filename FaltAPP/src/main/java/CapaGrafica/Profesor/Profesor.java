@@ -8,16 +8,13 @@ import CapaGrafica.ControlesAdmin;
 import javax.swing.JOptionPane;
 import CapaLogica.Profe;
 import CapaLogica.fachada;
-import java.awt.HeadlessException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Rodri
  */
 public class Profesor extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Profesor.class.getName());
 
     /**
@@ -240,82 +237,82 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTNActionPerformed
-if(IngresarCI.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Cedula no puede estar vacia para buscar");
-        }else{
-           Profe BuscarProfe=new Profe();
+        } else {
+            Profe BuscarProfe = new Profe();
             try {
-                int CI=Integer.parseInt(IngresarCI.getText());
-           BuscarProfe.setCI(CI);
+                int CI = Integer.parseInt(IngresarCI.getText());
+                BuscarProfe.setCI(CI);
 
-                   fachada.BuscarProfe(CI);
-
-           
+                //fachada.BuscarProfe(CI);
             } catch (NumberFormatException e) {
-                 JOptionPane.showMessageDialog(this, "Pone un numero");
+                JOptionPane.showMessageDialog(this, "Pone un numero");
             } catch (Exception ex) {
                 System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-            String Nombre=String.valueOf(BuscarProfe.getNombre());
-            String Apellido=String.valueOf(BuscarProfe.getNombre());
-          IngresarNombre.setText(Nombre);
-          IngresarApellido.setText(Apellido);
-            }
+            String Nombre = String.valueOf(BuscarProfe.getNombre());
+            String Apellido = String.valueOf(BuscarProfe.getNombre());
+            IngresarNombre.setText(Nombre);
+            IngresarApellido.setText(Apellido);
+        }
     }//GEN-LAST:event_BuscarDocenteBTNActionPerformed
 
     private void EliminarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDocenteBTNActionPerformed
-        if(IngresarCI.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder eliminarlo");
-        }else{
-     Profe EliminarProfe= new Profe();
+        } else {
+            Profe EliminarProfe = new Profe();
 
-     try{
-                int CI=Integer.parseInt(IngresarCI.getText());
+            try {
+                int CI = Integer.parseInt(IngresarCI.getText());
                 EliminarProfe.setCI(CI);
-                }catch(NumberFormatException num){
-                    JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
+            } catch (NumberFormatException num) {
+                JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
 
-    }
-     try {        
-        fachada.EliminarProfe(EliminarProfe);
-        
-         } catch (Exception ex) {
-            System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                            JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
-            
+            }
+            try {
+                fachada.EliminarProfe(EliminarProfe);
+
+            } catch (Exception ex) {
+                System.getLogger(Profesor.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
+
+            }
+            JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
+
         }
-                                                  JOptionPane.showMessageDialog(this, "Se pudo borrar los datos");
- 
-    } 
     }//GEN-LAST:event_EliminarDocenteBTNActionPerformed
 
     private void AgregarDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDocenteBTNActionPerformed
-if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
-        }else{
-  Profe prof=new Profe();  
-  try{
-                String nombre=IngresarNombre.getText();
+        } else {
+            Profe prof = new Profe();
+            try {
+                String nombre = IngresarNombre.getText();
                 prof.setNombre(nombre);
-                String apellido=IngresarApellido.getText();
+                String apellido = IngresarApellido.getText();
                 prof.setApellido(apellido);
-                try{
-                int CI=Integer.parseInt(IngresarCI.getText());
-                prof.setCI(CI);
-                }catch(NumberFormatException num){
+                try {
+                    int CI = Integer.parseInt(IngresarCI.getText());
+                    prof.setCI(CI);
+                } catch (NumberFormatException num) {
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
+                
                 fachada.IngresarProfe(prof);
+                
                 JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
 
-                            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 JOptionPane.showMessageDialog(this, "No se pudo guardar los datos");
-                
-                 }
-            
+
+            }
+
         }
-                
+
     }//GEN-LAST:event_AgregarDocenteBTNActionPerformed
 
     private void VolverBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverBTNActionPerformed
@@ -331,30 +328,30 @@ if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || Ing
     }//GEN-LAST:event_IngresarCIActionPerformed
 
     private void ModDocenteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModDocenteBTNActionPerformed
-if(IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()){
+        if (IngresarCI.getText().isEmpty() || IngresarApellido.getText().isEmpty() || IngresarNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios para modificar");
-        }else{
-  Profe prof=new Profe();  
-  try{
-                String nombre=IngresarNombre.getText();
+        } else {
+            Profe prof = new Profe();
+            try {
+                String nombre = IngresarNombre.getText();
                 prof.setNombre(nombre);
-                String apellido=IngresarApellido.getText();
+                String apellido = IngresarApellido.getText();
                 prof.setApellido(apellido);
-                try{
-                int CI=Integer.parseInt(IngresarCI.getText());
-                prof.setCI(CI);
-                }catch(NumberFormatException num){
+                try {
+                    int CI = Integer.parseInt(IngresarCI.getText());
+                    prof.setCI(CI);
+                } catch (NumberFormatException num) {
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
-                fachada.ModificarProfe(prof);
+                fachada.ModificarProfe(prof.getCI(), prof.getNombre(), prof.getApellido());
                 JOptionPane.showMessageDialog(this, "Datos modicicados correctamente");
 
-                            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 JOptionPane.showMessageDialog(this, "No se pudo guardar los cambios");
-                
-                 }
-            
+
+            }
+
         }    }//GEN-LAST:event_ModDocenteBTNActionPerformed
 
     /**

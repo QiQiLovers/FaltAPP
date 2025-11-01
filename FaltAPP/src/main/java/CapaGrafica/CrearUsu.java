@@ -7,20 +7,21 @@ package CapaGrafica;
 import javax.swing.JOptionPane;
 import CapaLogica.Hashutil;
 import CapaPersistencia.Persistencia;
+import java.sql.Connection;
 
 
 /**
  *
  * @author tomas
  */
-public class LoginAdmin extends javax.swing.JFrame {
+public class CrearUsu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginAdmin.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearUsu.class.getName());
 
     /**
      * Creates new form LoginAdmin
      */
-    public LoginAdmin() {
+    public CrearUsu() {
         initComponents();
     }
 
@@ -89,7 +90,7 @@ public class LoginAdmin extends javax.swing.JFrame {
 
         IngresarSesion_Boton.setBackground(new java.awt.Color(77, 130, 244));
         IngresarSesion_Boton.setForeground(new java.awt.Color(0, 0, 0));
-        IngresarSesion_Boton.setText("Ingresar Datos");
+        IngresarSesion_Boton.setText("Crear usuario");
         IngresarSesion_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IngresarSesion_BotonActionPerformed(evt);
@@ -165,25 +166,23 @@ public class LoginAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Los campos de Usuario y contraseña no pueden estar vacios");
         
         }else{
-            ControlesAdmin con=new ControlesAdmin();
+            LoginAdmin con=new LoginAdmin();
             Persistencia per= new Persistencia();
+            
             try{
-            if(per.loginUsu(UsuarioTXT.getText(), ContraseniaTXT.getText())){
+                if(per.CrearUsu(UsuarioTXT.getText(), ContraseniaTXT.getText()))
                 dispose();
                 setVisible(false);
                 con.setVisible(true);
-                
-            }else{
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorectos");
-            }
-                
-            }catch (Exception e) {
+            
+            }catch(Exception e){
                 try {
-                    throw new Exception("Error a la hora de iniciar sesion "+e.getMessage());
+                    throw new Exception ("Error a la hora de crear usuario " + e.getMessage());
                 } catch (Exception ex) {
-                    System.getLogger(LoginAdmin.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    System.getLogger(CrearUsu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
                 }
-        }
+
+            }   
             
         
         }
@@ -216,7 +215,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new LoginAdmin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CrearUsu().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
