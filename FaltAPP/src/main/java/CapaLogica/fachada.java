@@ -44,20 +44,20 @@ public class fachada {
     }
 
     // Licencias
-    public static void IngresarLicencia(Licencia inas) throws Exception {
+    public static void IngresarLicencia(licencia inas) throws Exception {
         Persistencia Ingre = new Persistencia();
         Ingre.IngresarLicencias(inas);
 
     }
 
-    public static Licencia BuscarLicencia(Licencia buscarLicencia) throws Exception {
+    public static licencia BuscarLicencia(licencia buscarLicencia) throws Exception {
         Persistencia per = new Persistencia();
         buscarLicencia = per.BuscarLicencia(buscarLicencia);
         return buscarLicencia;
     }
 
-    public static Licencia EliminarLicencia(int Ci, Date fechaIni) throws Exception {
-        Licencia good = null;
+    public static licencia EliminarLicencia(int Ci, Date fechaIni) throws Exception {
+        licencia good = null;
         good.setCI(Ci);
         good.setPeriodoInicio(fechaIni);
         Persistencia per = new Persistencia();
@@ -65,28 +65,28 @@ public class fachada {
         return good;
     }
 
-    public static Licencia ModificarLicencia(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception {
+    public static licencia ModificarLicencia(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception {
         Persistencia modLice = new Persistencia();
-        Licencia Lice = new Licencia();
+        licencia Lice = new licencia();
         Lice = modLice.ModificarLicencias(Ciprofe, obser, fechaFin, fechaIni, Razon);
         return Lice;
     }
 
     // Cursos
-    public static void IngresarCurso(Curso Curs) throws Exception {
+    public static void IngresarCurso(curso Curs) throws Exception {
         Persistencia Ingre = new Persistencia();
         Ingre.IngresarCurso(Curs);
 
     }
 
-    public static Curso BuscarCurso(Curso BuscarCurso) throws Exception {
+    public static curso BuscarCurso(curso BuscarCurso) throws Exception {
         Persistencia per = new Persistencia();
         BuscarCurso = per.BuscarCurso(BuscarCurso);
         return BuscarCurso;
     }
 
-    public static Curso EliminarCurso(String id, int Ci) throws Exception {
-        Curso pe=null;
+    public static curso EliminarCurso(String id, int Ci) throws Exception {
+        curso pe=null;
         pe.setCIProfe(Ci);
         pe.setId(id);
         Persistencia per = new Persistencia();
@@ -94,9 +94,9 @@ public class fachada {
         return pe;
     }
 
-    public static Curso ModificarCurso(String Materia, String Id, int ci) throws Exception {
+    public static curso ModificarCurso(String Materia, String Id, int ci) throws Exception {
         Persistencia modCur=new Persistencia();
-        Curso cur=new Curso();
+        curso cur=new curso();
         cur= modCur.ModificarCurso(Materia, Id, ci);
         return cur;
     }

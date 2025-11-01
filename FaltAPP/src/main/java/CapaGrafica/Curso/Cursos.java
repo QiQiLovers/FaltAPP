@@ -5,7 +5,7 @@
 package CapaGrafica.Curso;
 
 import CapaGrafica.ControlesAdmin;
-import CapaLogica.Curso;
+import CapaLogica.curso;
 import CapaLogica.fachada;
 import javax.swing.JOptionPane;
 
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Cursos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Curso.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(curso.class.getName());
 
     /**
      * Creates new form AddProfesor
@@ -244,7 +244,7 @@ public class Cursos extends javax.swing.JFrame {
     if(IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "La materia y el ID del grupo son necesarias para poder buscar");
         }else{
-           Curso BuscarCurso=new Curso();
+           curso BuscarCurso=new curso();
             try {
                 String Grupo=IngresarGrupo.getText();
                  String Materia=IngresarMateria.getText();
@@ -257,10 +257,10 @@ public class Cursos extends javax.swing.JFrame {
             } catch (NumberFormatException e) {
                  JOptionPane.showMessageDialog(this, "Pone un numero");
             } catch (Exception ex) {
-                System.getLogger(Curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                System.getLogger(curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
             String Materia=String.valueOf(BuscarCurso.getMateria());
-            String ID=String.valueOf(BuscarCurso.getMateria());
+            String ID=String.valueOf(BuscarCurso.getId());
           IngresarMateria.setText(Materia);
           IngresarGrupo.setText(ID);
 
@@ -273,7 +273,7 @@ public class Cursos extends javax.swing.JFrame {
 if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "La cedula eh el id es necesario para eliminar el curso");
         }else{
-     Curso EliminarCurso= new Curso();
+     curso EliminarCurso= new curso();
 
      try{
                 int CI=Integer.parseInt(IngresarCI.getText());
@@ -295,7 +295,7 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty()){
          fachada.EliminarCurso(id,ci);
         
          } catch (Exception ex) {
-            System.getLogger(Curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            System.getLogger(curso.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
                             JOptionPane.showMessageDialog(this, "No se pudo borrar los datos");
             
         }
@@ -308,7 +308,7 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty()){
 if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
         }else{
-  Curso curso=new Curso();  
+  curso curso=new curso();  
   try{
                 String materia=IngresarMateria.getText();
                 curso.setMateria(materia);
@@ -350,7 +350,7 @@ if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || Ingres
 if(IngresarCI.getText().isEmpty() || IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
         }else{
-  Curso curso=new Curso();  
+  curso curso=new curso();  
   try{
                 String materia=IngresarMateria.getText();
                 curso.setMateria(materia);

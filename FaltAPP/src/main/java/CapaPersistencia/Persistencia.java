@@ -6,9 +6,9 @@ package CapaPersistencia;
 
 import CapaExepcion.DBException;
 import CapaLogica.Hashutil;
-import CapaLogica.Licencia;
+import CapaLogica.licencia;
 import CapaLogica.Profe;
-import CapaLogica.Curso;
+import CapaLogica.curso;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -211,13 +211,13 @@ public class Persistencia {
     // COSAS DE PROFE FIN
     
     // COSAS DE LICENCIA INI
-    public void IngresarLicencias(Licencia lis) throws Exception, SQLException {
+    public void IngresarLicencias(licencia lis) throws Exception, SQLException {
 
         try (Connection con = cone.getConnection()) {
             int resultado = 0;
             ps = (PreparedStatement) con.prepareStatement(ANADIR_LICENCIAS);
             ps.setInt(1, lis.getCI());
-            ps.setString(2, lis.getObservacion());
+            ps.setString(2, lis.getAclaracion());
             ps.setDate(3, (Date) lis.getPeriodoFin());
             ps.setDate(4, (Date) lis.getPeriodoInicio());
             ps.setString(5, lis.getRazon());
@@ -229,7 +229,7 @@ public class Persistencia {
 
     }
 
-    public Licencia BuscarLicencia(Licencia bus) throws Exception, SQLException {
+    public licencia BuscarLicencia(licencia bus) throws Exception, SQLException {
 
         
 
@@ -247,7 +247,7 @@ public class Persistencia {
                     String Razon = rs.getString("Razon");
 
                     bus.setCI(ci);
-                    bus.setObservacion(observacion);
+                    bus.setAclaracion(observacion);
                     bus.setPeriodoFin(fechaFin);
                     bus.setPeriodoInicio(fechaInicio);
                     bus.setRazon(Razon);
@@ -261,7 +261,7 @@ public class Persistencia {
         return bus;
     }
 
-    public Licencia EliminarLicencia(int ci, Date fechaIni) throws Exception, SQLException {
+    public licencia EliminarLicencia(int ci, Date fechaIni) throws Exception, SQLException {
 
         try (Connection con = cone.getConnection()) {
             ps = (PreparedStatement) con.prepareStatement(ELIMINAR_LICENCIAS);
@@ -282,7 +282,7 @@ public class Persistencia {
 
     }
     
-    public Licencia ModificarLicencias(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception, SQLException{
+    public licencia ModificarLicencias(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception, SQLException{
     
         try(Connection con=cone.getConnection()){
         
@@ -309,7 +309,7 @@ public class Persistencia {
     // COSAS DE LICENCIA FIN
     
     //COSAS DE CURSOS INI
-    public void IngresarCurso(Curso cur) throws Exception, SQLException{
+    public void IngresarCurso(curso cur) throws Exception, SQLException{
     
         try (Connection con = cone.getConnection()){
         int resultado=0;
@@ -326,7 +326,7 @@ public class Persistencia {
     
     }    
     
-    public Curso BuscarCurso(Curso cur) throws Exception, SQLException{
+    public curso BuscarCurso(curso cur) throws Exception, SQLException{
     
         try(Connection con = cone.getConnection()){
             
@@ -336,7 +336,7 @@ public class Persistencia {
         return cur;
     }
     
-    public Curso EliminarCurso(String id, int Ci) throws Exception, SQLException{
+    public curso EliminarCurso(String id, int Ci) throws Exception, SQLException{
         
         try(Connection con=cone.getConnection()){
             ps=con.prepareStatement(ELIMINAR_CURSOS);
@@ -352,7 +352,7 @@ public class Persistencia {
         return null;
     }
     
-    public Curso ModificarCurso(String Materia, String Id, int ci) throws Exception,SQLException{
+    public curso ModificarCurso(String Materia, String Id, int ci) throws Exception,SQLException{
         
         try (Connection con = cone.getConnection()){
         ps=con.prepareStatement(MODIFICAR_CURSOS);

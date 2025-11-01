@@ -6,7 +6,7 @@ package CapaGrafica.Licencias;
 
 import java.util.Date;
 import CapaGrafica.ControlesAdmin;
-import CapaLogica.Licencia;
+import CapaLogica.licencia;
 import CapaLogica.fachada;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
@@ -295,7 +295,7 @@ public class Licencias extends javax.swing.JFrame {
         if (IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty() || Ingreso_FechaFinal.getText().isEmpty() || Ingreso_Razon.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Estos campos no pueden estar vacios");
         } else {
-            Licencia inas = new Licencia();
+            licencia inas = new licencia();
             try {
 
                 String razon = Ingreso_Razon.getText();
@@ -303,9 +303,9 @@ public class Licencias extends javax.swing.JFrame {
 
                 if (!Ingreso_Aclaracion.getText().isEmpty()) {
                     String aclaracion = Ingreso_Aclaracion.getText();
-                    inas.setObservacion(aclaracion);
+                    inas.setAclaracion(aclaracion);
                 } else {
-                    inas.setObservacion("N/A");
+                    inas.setAclaracion("N/A");
                 }
 
                 formato.setLenient(false);
@@ -352,7 +352,7 @@ public class Licencias extends javax.swing.JFrame {
         if (IngresarCI.getText().isEmpty() || Ingreso_FechaInicio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Cedula y fecha de inicio no pueden estar vacios para buscar licencias");
         } else {
-            Licencia buscarLicencia = new Licencia();
+            licencia buscarLicencia = new licencia();
             try {
                 int CI = Integer.parseInt(IngresarCI.getText());
                 buscarLicencia.setCI(CI);
@@ -373,7 +373,7 @@ public class Licencias extends javax.swing.JFrame {
             }
             Date fechaFin = buscarLicencia.getPeriodoFin();
             String razon = buscarLicencia.getRazon();
-            String aclaracion = buscarLicencia.getObservacion();
+            String aclaracion = buscarLicencia.getAclaracion();
             String transf = String.valueOf(fechaFin);
             Ingreso_FechaFinal.setText(transf);
             Ingreso_Razon.setText(razon);
@@ -386,7 +386,7 @@ public class Licencias extends javax.swing.JFrame {
         if (IngresarCI.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "La cedula del profe es necesaria para poder eliminarlo");
         } else {
-            Licencia EliminarLicencia = new Licencia();
+            licencia EliminarLicencia = new licencia();
 
             try {
                 int CI = Integer.parseInt(IngresarCI.getText());
@@ -422,15 +422,15 @@ public class Licencias extends javax.swing.JFrame {
         } else {
             
             try {
-                Licencia inas = new Licencia();
+                licencia inas = new licencia();
                 String razon = Ingreso_Razon.getText();
                 inas.setRazon(razon);
 
                 if (!Ingreso_Aclaracion.getText().isEmpty()) {
                     String aclaracion = Ingreso_Aclaracion.getText();
-                    inas.setObservacion(aclaracion);
+                    inas.setAclaracion(aclaracion);
                 } else {
-                    inas.setObservacion("N/A");
+                    inas.setAclaracion("N/A");
                 }
 
                 formato.setLenient(false);
@@ -456,7 +456,7 @@ public class Licencias extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Pon un numero en la cedula");
                 }
                 int ci=inas.getCI();
-                String obser=inas.getObservacion();
+                String obser=inas.getAclaracion();
                 Date fechaFin=inas.getPeriodoFin();
                 java.sql.Date fechaFinSQL = new java.sql.Date(fechaFin.getTime()); // java.sql.Date
                 Date fechaIni=inas.getPeriodoInicio();
