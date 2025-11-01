@@ -62,7 +62,7 @@ public class Persistencia {
 
 // Cursos
     private static final String ANADIR_CURSOS
-            = "INSERT INTO FaltAPP.Curso (Ci_Profesor, ID, Grupo) VALUES (?, ?, ?);";
+            = "INSERT INTO FaltAPP.Curso (Ci_Profesor, ID, Materia) VALUES (?, ?, ?);";
 
     private static final String MODIFICAR_CURSOS
             = "UPDATE FaltAPP.Curso SET Materia = ? WHERE ID = ? AND Ci_Profesor = ?;";
@@ -317,8 +317,8 @@ public class Persistencia {
         try (Connection con = cone.getConnection()){
         int resultado=0;
         ps=(PreparedStatement) con.prepareStatement(ANADIR_CURSOS);
-        ps.setString(1, cur.getId());
-        ps.setInt(2, cur.getCIProfe());
+        ps.setInt(1, cur.getCIProfe());
+        ps.setString(2,cur.getId());
         ps.setString(3, cur.getMateria());
         resultado=ps.executeUpdate();
         
