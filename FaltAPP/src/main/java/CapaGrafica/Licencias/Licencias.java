@@ -26,6 +26,8 @@ public class Licencias extends javax.swing.JFrame {
      */
     public Licencias() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**
@@ -311,7 +313,8 @@ public class Licencias extends javax.swing.JFrame {
                 formato.setLenient(false);
                 try {
                     Date inicio = formato.parse(Ingreso_FechaInicio.getText());
-                    inas.setPeriodoInicio(inicio);
+                    java.sql.Date fechaSQL = new java.sql.Date(inicio.getTime());
+                    inas.setPeriodoInicio(fechaSQL);
                 } catch (ParseException e) {
                     JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
                 }
@@ -319,7 +322,8 @@ public class Licencias extends javax.swing.JFrame {
                 try {
 
                     Date fin = formato.parse(Ingreso_FechaFinal.getText());
-                    inas.setPeriodoFin(fin);
+                    java.sql.Date fechaSQL = new java.sql.Date(fin.getTime());
+                    inas.setPeriodoFin(fechaSQL);
                 } catch (ParseException e) {
                     JOptionPane.showMessageDialog(null, "La fecha de fin no esta en el formato correcto. El formato es yyyy/mm/dd");
                 }
@@ -359,7 +363,8 @@ public class Licencias extends javax.swing.JFrame {
                 formato.setLenient(false);
                 try {
                     Date inicio = formato.parse(Ingreso_FechaInicio.getText());
-                    buscarLicencia.setPeriodoInicio(inicio);
+                    java.sql.Date fechaSQL = new java.sql.Date(inicio.getTime());
+                    buscarLicencia.setPeriodoInicio(fechaSQL);
                 } catch (ParseException e) {
                     JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
                 }
@@ -371,11 +376,13 @@ public class Licencias extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.getLogger(Licencias.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-            Date fechaFin = buscarLicencia.getPeriodoFin();
+            java.sql.Date fechaFin= new java.sql.Date(buscarLicencia.getPeriodoFin().getTime());
+            java.util.Date fechaUtil = new java.util.Date(fechaFin.getTime());
+            String FehcaFormateada= formato.format(fechaUtil);
             String razon = buscarLicencia.getRazon();
             String aclaracion = buscarLicencia.getAclaracion();
-            String transf = String.valueOf(fechaFin);
-            Ingreso_FechaFinal.setText(transf);
+            
+            Ingreso_FechaFinal.setText(FehcaFormateada);
             Ingreso_Razon.setText(razon);
             Ingreso_Aclaracion.setText(aclaracion);
 
@@ -397,7 +404,8 @@ public class Licencias extends javax.swing.JFrame {
             }
             try {
                 Date inicio = formato.parse(Ingreso_FechaInicio.getText());
-                EliminarLicencia.setPeriodoInicio(inicio);
+                java.sql.Date fechaSQL = new java.sql.Date(inicio.getTime());
+                EliminarLicencia.setPeriodoInicio(fechaSQL);
             } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
             }
@@ -436,7 +444,8 @@ public class Licencias extends javax.swing.JFrame {
                 formato.setLenient(false);
                 try {
                     Date inicio = formato.parse(Ingreso_FechaInicio.getText());
-                    inas.setPeriodoInicio(inicio);
+                    java.sql.Date fechaSQL = new java.sql.Date(inicio.getTime());
+                    inas.setPeriodoInicio(fechaSQL);
                 } catch (ParseException e) {
                     JOptionPane.showMessageDialog(null, "La fecha de inicio no esta en el formato correcto. El formato es yyyy/mm/dd");
                 }
@@ -444,7 +453,8 @@ public class Licencias extends javax.swing.JFrame {
                 try {
 
                     Date fin = formato.parse(Ingreso_FechaFinal.getText());
-                    inas.setPeriodoFin(fin);
+                    java.sql.Date fechaSQL = new java.sql.Date(fin.getTime());
+                    inas.setPeriodoFin(fechaSQL);
                 } catch (ParseException e) {
                     JOptionPane.showMessageDialog(null, "La fecha de fin no esta en el formato correcto. El formato es yyyy/mm/dd");
                 }

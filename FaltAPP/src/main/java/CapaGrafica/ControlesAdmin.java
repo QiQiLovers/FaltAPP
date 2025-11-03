@@ -23,6 +23,8 @@ public class ControlesAdmin extends javax.swing.JFrame {
      */
     public ControlesAdmin() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**

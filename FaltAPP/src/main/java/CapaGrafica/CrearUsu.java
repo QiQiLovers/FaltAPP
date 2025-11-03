@@ -23,6 +23,8 @@ public class CrearUsu extends javax.swing.JFrame {
      */
     public CrearUsu() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**

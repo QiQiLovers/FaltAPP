@@ -221,8 +221,8 @@ public class Persistencia {
             ps = (PreparedStatement) con.prepareStatement(ANADIR_LICENCIAS);
             ps.setInt(1, lis.getCI());
             ps.setString(2, lis.getAclaracion());
-            ps.setDate(3, (Date) lis.getPeriodoFin());
-            ps.setDate(4, (Date) lis.getPeriodoInicio());
+            ps.setDate(3, new java.sql.Date(lis.getPeriodoInicio().getTime()));
+            ps.setDate(4, new java.sql.Date(lis.getPeriodoFin().getTime()));
             ps.setString(5, lis.getRazon());
             resultado = ps.executeUpdate();
 
