@@ -38,11 +38,9 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Add_Profe = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         CursoBTN = new javax.swing.JButton();
         CrearUsuario = new javax.swing.JButton();
 
@@ -52,15 +50,21 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(77, 130, 244));
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Añadir / Modificar / Buscar / Eliminar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
         );
 
         Add_Profe.setBackground(new java.awt.Color(77, 130, 244));
@@ -72,39 +76,12 @@ public class ControlesAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(77, 130, 244));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Añadir Inasistencia");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         jButton5.setBackground(new java.awt.Color(77, 130, 244));
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Añadir Licencia");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setBackground(new java.awt.Color(77, 130, 244));
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setText("Modificar Licencia");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(77, 130, 244));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Eliminar Licencia/Inasistencia");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -119,7 +96,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
         CrearUsuario.setBackground(new java.awt.Color(77, 130, 244));
         CrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        CrearUsuario.setText("Crear usuario nuevo");
+        CrearUsuario.setText("Crear administrador nuevo");
         CrearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CrearUsuarioActionPerformed(evt);
@@ -131,66 +108,64 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Add_Profe)
-                    .addComponent(CursoBTN)
-                    .addComponent(CrearUsuario))
-                .addGap(38, 38, 38)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6))
-                    .addComponent(jButton1))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Add_Profe)
+                .addGap(18, 18, 18)
+                .addComponent(CursoBTN)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18)
+                .addComponent(CrearUsuario)
+                .addGap(77, 77, 77))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton4)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton5)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton6)
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(Add_Profe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CursoBTN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CrearUsuario)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Add_Profe)
+                    .addComponent(CursoBTN)
+                    .addComponent(jButton5)
+                    .addComponent(CrearUsuario))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-          dispose();
+    private void CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioActionPerformed
+
+    }//GEN-LAST:event_CrearUsuarioActionPerformed
+
+    private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
+        dispose();
         setVisible(false);
 
-       CapaGrafica.Licencias.Licencias  ver = new Licencias();
+        CapaGrafica.Curso.Cursos  ver = new Cursos ();
+        ver.setVisible(true);
+    }//GEN-LAST:event_CursoBTNActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+
+        CapaGrafica.Licencias.Licencias  ver = new Licencias();
         ver.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -202,26 +177,6 @@ public class ControlesAdmin extends javax.swing.JFrame {
         CapaGrafica.Profesor.Profesor  ver = new Profesor();
         ver.setVisible(true);
     }//GEN-LAST:event_Add_ProfeActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    }//GEN-LAST:event_jButton4ActionPerformed
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    }//GEN-LAST:event_jButton6ActionPerformed
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
-        dispose();
-        setVisible(false);
-
-       CapaGrafica.Curso.Cursos  ver = new Cursos ();
-        ver.setVisible(true);
-    }//GEN-LAST:event_CursoBTNActionPerformed
-
-    private void CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioActionPerformed
-        
-    }//GEN-LAST:event_CrearUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,10 +207,8 @@ public class ControlesAdmin extends javax.swing.JFrame {
     private javax.swing.JButton Add_Profe;
     private javax.swing.JButton CrearUsuario;
     private javax.swing.JButton CursoBTN;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
