@@ -149,7 +149,11 @@ public class ControlesAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuarioActionPerformed
+        dispose();
+        setVisible(false);
 
+        CapaGrafica.CrearUsu  crea = new CrearUsu ();
+        crea.setVisible(true);
     }//GEN-LAST:event_CrearUsuarioActionPerformed
 
     private void CursoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTNActionPerformed
