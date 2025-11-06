@@ -18,7 +18,6 @@ public class InicioDeApp extends javax.swing.JFrame {
     public InicioDeApp() {
         initComponents();
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(0);
     }
 
     /**

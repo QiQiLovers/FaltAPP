@@ -64,7 +64,7 @@ public class Persistencia {
             = "UPDATE FaltAPP.Inasistencia SET Observacion = ?, Fecha_fin = ?, Razon = ? WHERE CiProfe = ? AND Fecha_inicio = ?;";
 
     private static final String LLAMAR_TABLA
-            = "SELECT Nombre,Apellido,Materia,ID,Fecha_inicio,Fecha_fin,Razon,Observacion FROM Profesor p INNER JOIN Curso c ON p.CI=c.CI INNER JOIN Inasistencia i ON p.CI=i.CiProfe; ";
+            = "SELECT Nombre,Apellido,Materia,ID,Fecha_inicio,Fecha_fin,Razon,Observacion FROM FaltAPP.Profesor p INNER JOIN FaltAPP.Curso c ON p.CI=c.Ci_Profesor INNER JOIN FaltAPP.Inasistencia i ON p.CI=i.CiProfe; ";
 
 // Cursos
     private static final String ANADIR_CURSOS
@@ -74,7 +74,7 @@ public class Persistencia {
             = "UPDATE FaltAPP.Curso SET Materia = ? WHERE ID = ? AND Ci_Profesor = ?;";
 
     private static final String BUSCAR_CURSOS
-            = "SELECT * FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
+            = "SELECT * FROM FaltAPP.Curso WHERE Ci_Profesor = ?;";
 
     private static final String ELIMINAR_CURSOS
             = "DELETE FROM FaltAPP.Curso WHERE ID = ? AND Ci_Profesor = ?;";
@@ -359,11 +359,17 @@ public class Persistencia {
         try (Connection con = cone.getConnection()) {
 
             ps = (PreparedStatement) con.prepareStatement(BUSCAR_CURSOS);
+            ps.setInt(1, cur.getCIProfe());
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                   cur.setMateria(rs.getString("Materia"));
+                   cur.setId(rs.getString("ID"));
+                }
 
         }
         return cur;
     }
-
+    }
     public curso EliminarCurso(String id, int Ci) throws Exception, SQLException {
 
         try (Connection con = cone.getConnection()) {

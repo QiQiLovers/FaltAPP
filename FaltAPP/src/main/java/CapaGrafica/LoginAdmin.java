@@ -38,11 +38,11 @@ public class LoginAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         UsuarioTXT = new javax.swing.JTextField();
-        ContraseniaTXT = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         IngresarSesion_Boton = new javax.swing.JButton();
+        ContraseniaTXT = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,12 +54,6 @@ public class LoginAdmin extends javax.swing.JFrame {
         UsuarioTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsuarioTXTActionPerformed(evt);
-            }
-        });
-
-        ContraseniaTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseniaTXTActionPerformed(evt);
             }
         });
 
@@ -109,17 +103,18 @@ public class LoginAdmin extends javax.swing.JFrame {
                         .addGap(164, 164, 164)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UsuarioTXT)
-                            .addComponent(ContraseniaTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(178, 178, 178)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(IngresarSesion_Boton)))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                            .addComponent(ContraseniaTXT))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(IngresarSesion_Boton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,10 +150,6 @@ public class LoginAdmin extends javax.swing.JFrame {
     private void UsuarioTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioTXTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioTXTActionPerformed
-
-    private void ContraseniaTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseniaTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseniaTXTActionPerformed
 
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
         // TODO add your handling code here:
@@ -223,7 +214,7 @@ public class LoginAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ContraseniaTXT;
+    private javax.swing.JPasswordField ContraseniaTXT;
     private javax.swing.JButton IngresarSesion_Boton;
     private javax.swing.JTextField UsuarioTXT;
     private javax.swing.JLabel jLabel1;

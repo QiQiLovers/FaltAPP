@@ -241,15 +241,13 @@ public class Cursos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
-    if (IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "La materia y el ID del grupo son necesarias para poder buscar");
+    if (IngresarCI.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El ci no puede estar vacio a la hora de buscar");
         } else {
             curso BuscarCurso = new curso();
             try {
-                String Grupo = IngresarGrupo.getText();
-                String Materia = IngresarMateria.getText();
-                BuscarCurso.setId(Grupo);
-                BuscarCurso.setMateria(Materia);
+                int Ci=Integer.parseInt(IngresarCI.getText());
+                BuscarCurso.setCIProfe(Ci);
 
                 fachada.BuscarCurso(BuscarCurso);
 

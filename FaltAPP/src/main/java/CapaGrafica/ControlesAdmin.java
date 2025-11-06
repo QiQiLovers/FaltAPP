@@ -24,7 +24,6 @@ public class ControlesAdmin extends javax.swing.JFrame {
     public ControlesAdmin() {
         initComponents();
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(0);
     }
 
     /**
@@ -43,6 +42,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         CursoBTN = new javax.swing.JButton();
         CrearUsuario = new javax.swing.JButton();
+        CursoBTN1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +78,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(77, 130, 244));
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Añadir Licencia");
+        jButton5.setText("Licencia");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -103,12 +103,21 @@ public class ControlesAdmin extends javax.swing.JFrame {
             }
         });
 
+        CursoBTN1.setBackground(new java.awt.Color(77, 130, 244));
+        CursoBTN1.setForeground(new java.awt.Color(0, 0, 0));
+        CursoBTN1.setText("Ver Licencia");
+        CursoBTN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CursoBTN1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(Add_Profe)
                 .addGap(18, 18, 18)
                 .addComponent(CursoBTN)
@@ -116,8 +125,9 @@ public class ControlesAdmin extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
                 .addComponent(CrearUsuario)
-                .addGap(77, 77, 77))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1, 1, 1)
+                .addComponent(CursoBTN1))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +138,8 @@ public class ControlesAdmin extends javax.swing.JFrame {
                     .addComponent(Add_Profe)
                     .addComponent(CursoBTN)
                     .addComponent(jButton5)
-                    .addComponent(CrearUsuario))
+                    .addComponent(CrearUsuario)
+                    .addComponent(CursoBTN1))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -136,9 +147,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,6 +191,14 @@ public class ControlesAdmin extends javax.swing.JFrame {
         ver.setVisible(true);
     }//GEN-LAST:event_Add_ProfeActionPerformed
 
+    private void CursoBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CursoBTN1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        setVisible(false);
+
+        CapaGrafica.Horarios  ver = new Horarios();
+        ver.setVisible(true);    }//GEN-LAST:event_CursoBTN1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,6 +228,7 @@ public class ControlesAdmin extends javax.swing.JFrame {
     private javax.swing.JButton Add_Profe;
     private javax.swing.JButton CrearUsuario;
     private javax.swing.JButton CursoBTN;
+    private javax.swing.JButton CursoBTN1;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
