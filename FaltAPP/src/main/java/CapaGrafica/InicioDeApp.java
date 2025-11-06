@@ -4,6 +4,8 @@
  */
 package CapaGrafica;
 
+import CapaPersistencia.CrearPrimerUsu;
+
 /**
  *
  * @author santi
@@ -150,7 +152,17 @@ public class InicioDeApp extends javax.swing.JFrame {
         UsuarioIR.setVisible(true);    }//GEN-LAST:event_UsuarioIR_BotonActionPerformed
 
     private void AdminIR_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminIR_BotonActionPerformed
-       dispose();
+        
+        CrearPrimerUsu usu=new CrearPrimerUsu();
+        try {
+            usu.CrearUsu();
+        } catch (Exception ex) {
+            System.getLogger(InicioDeApp.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+        
+        
+        
+        dispose();
         setVisible(false);
         LoginAdmin login = new LoginAdmin();
         login.setVisible(true);    }//GEN-LAST:event_AdminIR_BotonActionPerformed
