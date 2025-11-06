@@ -4,8 +4,11 @@
  */
 package CapaLogica;
 
+import CapaPersistencia.ClaseCompuesta;
 import CapaPersistencia.Persistencia;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -70,6 +73,11 @@ public class fachada {
         licencia Lice = new licencia();
         Lice = modLice.ModificarLicencias(Ciprofe, obser, fechaFin, fechaIni, Razon);
         return Lice;
+    }
+    
+    public List<ClaseCompuesta> obtenerDatosHorarios() throws Exception {
+        Persistencia p= new Persistencia();
+        return p.DatosHorarios();
     }
 
     // Cursos

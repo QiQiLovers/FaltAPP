@@ -15,6 +15,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import CapaPersistencia.ClaseCompuesta;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -59,6 +62,9 @@ public class Persistencia {
 
     private static final String MODIFICAR_LICENCIAS
             = "UPDATE FaltAPP.Inasistencia SET Observacion = ?, Fecha_fin = ?, Razon = ? WHERE CiProfe = ? AND Fecha_inicio = ?;";
+
+    private static final String LLAMAR_TABLA
+            = "SELECT Nombre,Apellido,Materia,ID,Fecha_inicio,Fecha_fin,Razon,Observacion FROM Profesor p INNER JOIN Curso c ON p.CI=c.CI INNER JOIN Inasistencia i ON p.CI=i.CiProfe; ";
 
 // Cursos
     private static final String ANADIR_CURSOS
@@ -118,14 +124,13 @@ public class Persistencia {
     }
 
     //COSAS DE USU FIN
-    
     // COSAS DE PROFE INI
     public void IngresarProfe(Profe pro) throws Exception, SQLException {
 
         try (Connection con = cone.getConnection()) {
 
             int resultado = 0;
-            ps =con.prepareStatement(ANADIR_PROFES);
+            ps = con.prepareStatement(ANADIR_PROFES);
             ps.setInt(1, pro.getCI());
             ps.setString(2, pro.getNombre());
             ps.setString(3, pro.getApellido());
@@ -140,10 +145,10 @@ public class Persistencia {
     public Profe BuscarProfe(Profe BusCI) throws Exception, SQLException {
         Profe pro = new Profe();
         try {
-            
+
             Connection con = cone.getConnection();
 
-            ps =con.prepareStatement(BUSCAR_PROFES);
+            ps = con.prepareStatement(BUSCAR_PROFES);
             ps.setInt(1, BusCI.getCI());
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -152,21 +157,19 @@ public class Persistencia {
 
                 pro.setNombre(nombre);
                 pro.setApellido(Apellido);
-                
-              
+
             } else {
                 throw new DBException("No se obtuvo el profesor");
             }
 
             JOptionPane.showMessageDialog(null, "Profe encontrado");
             con.close();
-            
 
         } catch (Exception e) {
             throw new Exception("Error a la hora de buscar profe " + e.getMessage());
         }
         return pro;
-        
+
     }
 
     public Profe EliminarProfe(Profe ci) throws Exception, SQLException {
@@ -209,10 +212,8 @@ public class Persistencia {
         }
         return null;
     }
-    
 
     // COSAS DE PROFE FIN
-    
     // COSAS DE LICENCIA INI
     public void IngresarLicencias(licencia lis) throws Exception, SQLException {
 
@@ -233,8 +234,6 @@ public class Persistencia {
     }
 
     public licencia BuscarLicencia(licencia bus) throws Exception, SQLException {
-
-        
 
         try (Connection con = cone.getConnection()) {
 
@@ -284,19 +283,19 @@ public class Persistencia {
         return null;
 
     }
-    
-    public licencia ModificarLicencias(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception, SQLException{
-    
-        try(Connection con=cone.getConnection()){
-        
-        ps=con.prepareStatement(MODIFICAR_LICENCIAS);
-        ps.setString(1,obser);
-        ps.setDate(2, (Date) fechaFin); 
-        ps.setString(3,Razon);
-        ps.setInt(4,Ciprofe);
-        ps.setDate(5, (Date) fechaIni);
-        int filasActu = ps.executeUpdate();
-        if (filasActu > 0) {
+
+    public licencia ModificarLicencias(int Ciprofe, String obser, Date fechaFin, Date fechaIni, String Razon) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+
+            ps = con.prepareStatement(MODIFICAR_LICENCIAS);
+            ps.setString(1, obser);
+            ps.setDate(2, (Date) fechaFin);
+            ps.setString(3, Razon);
+            ps.setInt(4, Ciprofe);
+            ps.setDate(5, (Date) fechaIni);
+            int filasActu = ps.executeUpdate();
+            if (filasActu > 0) {
                 JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
             } else {
                 JOptionPane.showMessageDialog(null, "No se ah encontrado ninguna licencia con el ci:" + Ciprofe);
@@ -305,78 +304,102 @@ public class Persistencia {
             System.out.println("Error al actualizar el profesor: " + e.getMessage());
         }
         return null;
-        
-    
-    
+
+    }
+
+    public List<ClaseCompuesta> DatosHorarios() throws SQLException {
+        List<ClaseCompuesta> lista = new ArrayList<>();
+
+        try (Connection con = cone.getConnection()) {
+            ps = (PreparedStatement) con.prepareStatement(LLAMAR_TABLA);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Profe pro = new Profe();
+                pro.setNombre(rs.getString("Nombre"));
+                pro.setApellido(rs.getString("Apellido"));
+
+                curso cur = new curso();
+                cur.setMateria(rs.getString("Materia"));
+                cur.setId(rs.getString("ID"));
+
+                licencia li = new licencia();
+                li.setPeriodoInicio(rs.getDate("Fecha_inicio"));
+                li.setPeriodoFin(rs.getDate("Fecha_fin"));
+                li.setRazon(rs.getString("Razon"));
+                li.setAclaracion(rs.getString("Observacion"));
+
+                lista.add(new ClaseCompuesta(pro, cur, li));
+
+            }
+
+        }
+        return lista;
     }
     // COSAS DE LICENCIA FIN
-    
+
     //COSAS DE CURSOS INI
-    public void IngresarCurso(curso cur) throws Exception, SQLException{
-    
-        try (Connection con = cone.getConnection()){
-        int resultado=0;
-        ps=(PreparedStatement) con.prepareStatement(ANADIR_CURSOS);
-        ps.setInt(1, cur.getCIProfe());
-        ps.setString(2,cur.getId());
-        ps.setString(3, cur.getMateria());
-        resultado=ps.executeUpdate();
-        
-        
-        }catch (SQLException e) {
+    public void IngresarCurso(curso cur) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            int resultado = 0;
+            ps = (PreparedStatement) con.prepareStatement(ANADIR_CURSOS);
+            ps.setInt(1, cur.getCIProfe());
+            ps.setString(2, cur.getId());
+            ps.setString(3, cur.getMateria());
+            resultado = ps.executeUpdate();
+
+        } catch (SQLException e) {
             throw new Exception("Error a la hora de añadir el curso" + e.getMessage());
         }
-    
-    }    
-    
-    public curso BuscarCurso(curso cur) throws Exception, SQLException{
-    
-        try(Connection con = cone.getConnection()){
-            
-           ps = (PreparedStatement) con.prepareStatement(BUSCAR_CURSOS);
-            
+
+    }
+
+    public curso BuscarCurso(curso cur) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+
+            ps = (PreparedStatement) con.prepareStatement(BUSCAR_CURSOS);
+
         }
         return cur;
     }
-    
-    public curso EliminarCurso(String id, int Ci) throws Exception, SQLException{
-        
-        try(Connection con=cone.getConnection()){
-            ps=con.prepareStatement(ELIMINAR_CURSOS);
+
+    public curso EliminarCurso(String id, int Ci) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            ps = con.prepareStatement(ELIMINAR_CURSOS);
             ps.setString(1, id);
-            ps.setInt(2,Ci);
-            int filasEliminadas=0;
+            ps.setInt(2, Ci);
+            int filasEliminadas = 0;
             if (filasEliminadas > 0) {
                 JOptionPane.showMessageDialog(null, "Curso eliminado");
             } else {
-                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con ese ci: " + Ci + "\nNi con ese id"+id);
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con ese ci: " + Ci + "\nNi con ese id" + id);
             }
         }
         return null;
     }
-    
-    public curso ModificarCurso(String Materia, String Id, int ci) throws Exception,SQLException{
-        
-        try (Connection con = cone.getConnection()){
-        ps=con.prepareStatement(MODIFICAR_CURSOS);
-        ps.setString(1, Materia);
-        ps.setString(2, Id);
-        ps.setInt(3, ci);
-        int filasActu = ps.executeUpdate();
 
-        if (filasActu > 0) {
+    public curso ModificarCurso(String Materia, String Id, int ci) throws Exception, SQLException {
+
+        try (Connection con = cone.getConnection()) {
+            ps = con.prepareStatement(MODIFICAR_CURSOS);
+            ps.setString(1, Materia);
+            ps.setString(2, Id);
+            ps.setInt(3, ci);
+            int filasActu = ps.executeUpdate();
+
+            if (filasActu > 0) {
                 JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
             } else {
-                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con el id: "+Id);
+                JOptionPane.showMessageDialog(null, "No se ah encontrado ningun curso con el id: " + Id);
             }
         } catch (SQLException e) {
             System.out.println("Error al modificar curso: " + e.getMessage());
         }
         return null;
-        
-        
-        
+
     }
-    
+
     //COSAS DE CURSO FIN
 }

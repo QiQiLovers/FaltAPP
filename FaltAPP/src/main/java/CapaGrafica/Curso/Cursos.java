@@ -241,7 +241,7 @@ public class Cursos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BuscarDocenteBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDocenteBTN1ActionPerformed
-        if (IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
+    if (IngresarGrupo.getText().isEmpty() || IngresarMateria.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "La materia y el ID del grupo son necesarias para poder buscar");
         } else {
             curso BuscarCurso = new curso();
